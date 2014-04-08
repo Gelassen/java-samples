@@ -2,6 +2,7 @@ package com.example.restservice;
 
 import com.example.restservice.actions.Action;
 import com.example.restservice.actions.GetAllHotelsAction;
+import com.example.restservice.actions.ServletContext;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -20,7 +21,8 @@ public class MainServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Action action = new GetAllHotelsAction();
+        final String path = request.getContextPath();
+        Action action = ServletContext.getAction(path);
         action.process(request, response);
     }
 

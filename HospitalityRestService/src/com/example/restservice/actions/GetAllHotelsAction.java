@@ -2,7 +2,6 @@ package com.example.restservice.actions;
 
 import com.example.restservice.model.inventory.Hotel;
 import com.example.restservice.storage.StorageWrapper;
-import org.codehaus.jackson.map.ObjectMapper;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

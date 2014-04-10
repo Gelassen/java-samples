@@ -2,16 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3055fdcf-4849-4dad-9b33-3d64a393c296" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/mysql_mysql_connector_java_5_1_9.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/example/restservice/actions/GetAllInventoriesAction.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/example/restservice/actions/ServletContext.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/example/restservice/storage/MySqlStorage.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/example/restservice/storage/Query.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/example/restservice/storage/handlers/HotelsHandler.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/example/restservice/storage/handlers/ResultHadler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../HospitalityClient/web/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/../HospitalityClient/web/WEB-INF/web.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../HospitalityClient/web/index.jsp" afterPath="$PROJECT_DIR$/../HospitalityClient/web/index.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/example/restservice/MainServlet.java" afterPath="$PROJECT_DIR$/src/com/example/restservice/MainServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/example/restservice/actions/GetAllHotelsAction.java" afterPath="$PROJECT_DIR$/src/com/example/restservice/actions/GetAllHotelsAction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/example/restservice/storage/StorageWrapper.java" afterPath="$PROJECT_DIR$/src/com/example/restservice/storage/StorageWrapper.java" />
     </list>
     <ignored path="HospitalityRestService.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -38,6 +31,60 @@
     <groupTables value="false" />
   </component>
   <component name="DebuggerManager">
+    <line_breakpoints>
+      <breakpoint url="file://$PROJECT_DIR$/src/com/example/restservice/MainServlet.java" line="26" class="com.example.restservice.MainServlet" package="com.example.restservice">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="false" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/src/com/example/restservice/MainServlet.java" line="20" class="com.example.restservice.MainServlet" package="com.example.restservice">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="false" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/src/com/example/restservice/actions/GetAllHotelsAction.java" line="15" class="com.example.restservice.actions.GetAllHotelsAction" package="com.example.restservice.actions">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="false" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/src/com/example/restservice/storage/handlers/HotelsHandler.java" line="18" class="com.example.restservice.storage.handlers.HotelsHandler" package="com.example.restservice.storage.handlers">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="false" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+    </line_breakpoints>
     <breakpoint_any>
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -78,19 +125,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="MainServlet.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="MainServlet.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/example/restservice/MainServlet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="43" selection-start="884" selection-end="884" vertical-scroll-proportion="0.0">
+            <state line="26" column="61" selection-start="993" selection-end="993" vertical-scroll-proportion="0.56920075">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GetAllHotelsAction.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="GetAllHotelsAction.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/example/restservice/actions/GetAllHotelsAction.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="62" selection-start="602" selection-end="602" vertical-scroll-proportion="0.29276693">
+            <state line="15" column="62" selection-start="602" selection-end="602" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -101,8 +148,31 @@
       <file leaf-file-name="StorageWrapper.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/example/restservice/storage/StorageWrapper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="52" selection-start="469" selection-end="469" vertical-scroll-proportion="0.0">
+            <state line="12" column="38" selection-start="356" selection-end="356" vertical-scroll-proportion="0.0">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MySqlStorage.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/example/restservice/storage/MySqlStorage.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="46" column="36" selection-start="1517" selection-end="1517" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HotelsHandler.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/example/restservice/storage/handlers/HotelsHandler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="18" column="0" selection-start="456" selection-end="456" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#504#511#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -134,7 +204,6 @@
         <option value="$PROJECT_DIR$/src/com/example/restservice/model/inventory/Inventory.java" />
         <option value="$PROJECT_DIR$/src/com/example/restservice/actions/GetAllInventoriesAction.java" />
         <option value="$PROJECT_DIR$/src/com/example/restservice/actions/ServletContext.java" />
-        <option value="$PROJECT_DIR$/src/com/example/restservice/MainServlet.java" />
         <option value="$PROJECT_DIR$/src/com/example/restservice/storage/QueryBuilder.java" />
         <option value="$PROJECT_DIR$/src/com/example/restservice/storage/Query.java" />
         <option value="$PROJECT_DIR$/src/com/example/restservice/storage/ResultHadler.java" />
@@ -143,6 +212,7 @@
         <option value="$PROJECT_DIR$/src/com/example/restservice/storage/StorageWrapper.java" />
         <option value="$PROJECT_DIR$/src/com/example/restservice/actions/GetAllHotelsAction.java" />
         <option value="$PROJECT_DIR$/src/com/example/restservice/storage/MySqlStorage.java" />
+        <option value="$PROJECT_DIR$/src/com/example/restservice/MainServlet.java" />
       </list>
     </option>
   </component>
@@ -296,7 +366,55 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="storage" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="handlers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HospitalityRestService" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HospitalityRestService" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="restservice" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="model" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HospitalityRestService" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HospitalityRestService" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="restservice" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="actions" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -316,7 +434,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="GoToFile.includeJavaFiles" value="false" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="OverrideImplement.combined" value="true" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="options.splitter.main.proportions" value="0.3" />
@@ -475,6 +593,7 @@
       </method>
     </configuration>
     <configuration default="false" name="Tomcat 7" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 7">
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8090/" />
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
         <artifact name="HospitalityRestService:war exploded">
@@ -485,6 +604,7 @@
       </deployment>
       <server-settings>
         <option name="BASE_DIRECTORY_NAME" value="Unnamed_HospitalityRestService" />
+        <option name="HTTP_PORT" value="8090" />
       </server-settings>
       <predefined_log_file id="TOMCAT_LOCALHOST_LOG_ID" enabled="true" />
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
@@ -583,30 +703,30 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32977587" sideWeight="0.6707589" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32977587" sideWeight="0.6707589" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2497332" sideWeight="0.6707589" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39955357" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39955357" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32977587" sideWeight="0.6707589" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32924107" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2497332" sideWeight="0.4966518" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32977587" sideWeight="0.6707589" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39967984" sideWeight="0.6707589" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24946581" sideWeight="0.6707589" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24946581" sideWeight="0.6004464" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32924107" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -739,25 +859,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/restservice/storage/handlers/ResultHadler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="17" selection-start="193" selection-end="193" vertical-scroll-proportion="0.19517796">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/restservice/storage/handlers/HotelsHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="24" selection-start="794" selection-end="794" vertical-scroll-proportion="0.4879449">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#504#511#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/example/restservice/model/inventory/RoomProperty.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="2" column="12" selection-start="62" selection-end="62" vertical-scroll-proportion="0.039035592">
@@ -800,13 +901,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/restservice/MainServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="43" selection-start="884" selection-end="884" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/example/restservice/actions/ServletContext.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="14" column="40" selection-start="300" selection-end="300" vertical-scroll-proportion="0.0">
@@ -817,28 +911,54 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/restservice/storage/MySqlStorage.java">
+    <entry file="file://$PROJECT_DIR$/src/com/example/restservice/storage/StorageWrapper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="39" selection-start="1585" selection-end="1585" vertical-scroll-proportion="0.6486797">
+        <state line="12" column="38" selection-start="356" selection-end="356" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/restservice/storage/handlers/ResultHadler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="16" selection-start="225" selection-end="225" vertical-scroll-proportion="0.39766082">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/restservice/storage/StorageWrapper.java">
+    <entry file="file://$PROJECT_DIR$/src/com/example/restservice/storage/MySqlStorage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="52" selection-start="469" selection-end="469" vertical-scroll-proportion="0.0">
-          <folding />
+        <state line="46" column="36" selection-start="1517" selection-end="1517" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/restservice/storage/handlers/HotelsHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="0" selection-start="456" selection-end="456" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#504#511#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/example/restservice/actions/GetAllHotelsAction.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="62" selection-start="602" selection-end="602" vertical-scroll-proportion="0.29276693">
+        <state line="15" column="62" selection-start="602" selection-end="602" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/restservice/MainServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="61" selection-start="993" selection-end="993" vertical-scroll-proportion="0.56920075">
+          <folding />
         </state>
       </provider>
     </entry>
@@ -872,7 +992,7 @@
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.26589596" />
+                <option value="0.22727273" />
               </list>
             </option>
           </splitter-proportions>
@@ -927,7 +1047,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>mysql:mysql-connector-java:5.1.9</last-edited>
+          <last-edited>javax.servlet:servlet-api:2.5</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

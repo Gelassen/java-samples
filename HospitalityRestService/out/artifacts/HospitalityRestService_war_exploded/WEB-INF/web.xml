@@ -6,13 +6,13 @@
            version="2.5">
 
     <servlet>
-        <display-name>Hi</display-name>
-        <servlet-name>TestServlet</servlet-name>
-        <servlet-class>com.example.restservice.TestServlet</servlet-class>
+        <display-name>Processor</display-name>
+        <servlet-name>MainServlet</servlet-name>
+        <servlet-class>com.example.restservice.MainServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>TestServlet</servlet-name>
+        <servlet-name>MainServlet</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
 

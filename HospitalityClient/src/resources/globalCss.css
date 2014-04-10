@@ -1,0 +1,20 @@
+.img {
+
+}
+
+.img.hotel_img {
+    display: block;
+    border-spacing: 0;
+    float: left;
+}
+
+.text {
+
+}
+
+.text.hotel_content {
+    margin-left: 160px;
+    text-align: left;
+    float: right;
+}
+

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source source="LOCAL" name="MySQL - mydb@localhost" uuid="41b5a583-ac91-4082-9a93-dae34b5148fd">
+    <database-info product="MySQL" version="5.6.17-log" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.29 ( Revision: alexander.soklakov@oracle.com-20140120140810-s44574olh90i6i4l )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
+    <schema name="" catalog="mydb"/>
+    <table name="ammenities" schema="" catalog="mydb" type="TABLE">
+      <column name="id_ammenities" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="has_breakfast" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6" def="MA=="/>
+      <primary-key name="PRIMARY" columns="id_ammenities"/>
+      <exported-key name="inventories_ibfk_3" table="inventories" schema="" catalog="mydb" columns="id_ammenities"/>
+      <index name="unique_id_ammenities" unique="true" columns="id_ammenities"/>
+    </table>
+    <table name="hotel_property" schema="" catalog="mydb" type="TABLE">
+      <column name="id_hotel_property" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="has_pool" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6" def="MA=="/>
+      <column name="has_tennis_court" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6" def="MA=="/>
+      <column name="has_waterslides" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <primary-key name="PRIMARY" columns="id_hotel_property"/>
+      <exported-key name="hotels_ibfk_1" table="hotels" schema="" catalog="mydb" columns="id_hotel_property"/>
+      <index name="unique_id_hotel_property" unique="true" columns="id_hotel_property"/>
+    </table>
+    <table name="hotels" schema="" catalog="mydb" type="TABLE">
+      <column name="id_hotel" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="name" sqlType="VARCHAR" precision="45" scale="0" nullable="true" jdbcType="12"/>
+      <column name="region" sqlType="VARCHAR" precision="45" scale="0" nullable="true" jdbcType="12"/>
+      <column name="description" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="photo" sqlType="BLOB" precision="65535" scale="0" nullable="false" jdbcType="-4"/>
+      <column name="id_hotel_property" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id_hotel"/>
+      <foreign-key name="hotels_ibfk_1" columns="id_hotel_property" ref-table="hotel_property" ref-schema="" ref-catalog="mydb" ref-columns="id_hotel_property" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="inventories_ibfk_1" table="inventories" schema="" catalog="mydb" columns="id_hotel"/>
+      <index name="unique_id_hotel" unique="true" columns="id_hotel"/>
+    </table>
+    <table name="inventories" schema="" catalog="mydb" type="TABLE">
+      <column name="id_hotel" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="id_room" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="id_ammenities" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="price" sqlType="DECIMAL" precision="10" scale="0" nullable="false" jdbcType="3" def="MA=="/>
+      <column name="id_inventory" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id_inventory"/>
+      <foreign-key name="inventories_ibfk_3" columns="id_ammenities" ref-table="ammenities" ref-schema="" ref-catalog="mydb" ref-columns="id_ammenities" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="inventories_ibfk_1" columns="id_hotel" ref-table="hotels" ref-schema="" ref-catalog="mydb" ref-columns="id_hotel" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="inventories_ibfk_2" columns="id_room" ref-table="room" ref-schema="" ref-catalog="mydb" ref-columns="id_room" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="reservation_ibfk_1" table="reservation" schema="" catalog="mydb" columns="id_inventory"/>
+      <index name="unique_id_inventory" unique="true" columns="id_inventory"/>
+    </table>
+    <table name="reservation" schema="" catalog="mydb" type="TABLE">
+      <column name="id_inventory" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="check_in" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="check_out" sqlType="MEDIUMTEXT" precision="16777215" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="guest_name" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="guest_phone" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id_inventory"/>
+      <foreign-key name="reservation_ibfk_1" columns="id_inventory" ref-table="inventories" ref-schema="" ref-catalog="mydb" ref-columns="id_inventory" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="unique_id_room" unique="true" columns="id_inventory"/>
+    </table>
+    <table name="room" schema="" catalog="mydb" type="TABLE">
+      <column name="id_room" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="room_type" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="people_capacity" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MQ=="/>
+      <column name="id_room_property" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="booked" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6" def="MA=="/>
+      <column name="locked" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6" def="MA=="/>
+      <primary-key name="PRIMARY" columns="id_room"/>
+      <foreign-key name="room_ibfk_1" columns="id_room_property" ref-table="room_property" ref-schema="" ref-catalog="mydb" ref-columns="id_room_property" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="inventories_ibfk_2" table="inventories" schema="" catalog="mydb" columns="id_room"/>
+    </table>
+    <table name="room_property" schema="" catalog="mydb" type="TABLE">
+      <column name="id_room_property" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="has_tv" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6" def="MA=="/>
+      <column name="has_balcony" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6" def="MA=="/>
+      <column name="has_conditioner" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6" def="MA=="/>
+      <column name="nice_view_on_sea" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6" def="MA=="/>
+      <column name="nice_view_on_pool" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6" def="MA=="/>
+      <column name="ugly_view_from_window" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <primary-key name="PRIMARY" columns="id_room_property"/>
+      <exported-key name="room_ibfk_1" table="room" schema="" catalog="mydb" columns="id_room_property"/>
+      <index name="unique_id_room_property" unique="true" columns="id_room_property"/>
+    </table>
+  </data-source>
+</component>

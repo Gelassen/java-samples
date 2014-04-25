@@ -1,0 +1,33 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="Rest">
+    <output-path>$PROJECT_DIR$/out/artifacts/Rest</output-path>
+    <root id="archive" name="Rest.war">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="HospitalityRestServer" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: javax.ws.rs:javax.ws.rs-api:2.0" />
+          <element id="library" level="project" name="Maven: org.glassfish.jersey.core:jersey-server:2.7" />
+          <element id="library" level="project" name="Maven: org.glassfish.jersey.core:jersey-common:2.7" />
+          <element id="library" level="project" name="Maven: javax.annotation:javax.annotation-api:1.2" />
+          <element id="library" level="project" name="Maven: org.glassfish.jersey.bundles.repackaged:jersey-guava:2.7" />
+          <element id="library" level="project" name="Maven: org.glassfish.hk2:hk2-api:2.2.0" />
+          <element id="library" level="project" name="Maven: org.glassfish.hk2:hk2-utils:2.2.0" />
+          <element id="library" level="project" name="Maven: org.glassfish.hk2.external:aopalliance-repackaged:2.2.0" />
+          <element id="library" level="project" name="Maven: org.glassfish.hk2.external:javax.inject:2.2.0" />
+          <element id="library" level="project" name="Maven: org.glassfish.hk2:hk2-locator:2.2.0" />
+          <element id="library" level="project" name="Maven: org.javassist:javassist:3.18.1-GA" />
+          <element id="library" level="project" name="Maven: org.glassfish.hk2:osgi-resource-locator:1.0.1" />
+          <element id="library" level="project" name="Maven: org.glassfish.jersey.core:jersey-client:2.7" />
+          <element id="library" level="project" name="Maven: javax.validation:validation-api:1.1.0.Final" />
+          <element id="library" level="project" name="Maven: org.apache.tomcat:annotations-api:6.0.29" />
+          <element id="library" level="project" name="Maven: org.glassfish:javax.ejb:3.1" />
+          <element id="library" level="project" name="Maven: org.glassfish:javax.transaction:3.1" />
+          <element id="library" level="project" name="Maven: org.glassfish:javax.annotation:3.1" />
+        </element>
+      </element>
+      <element id="javaee-facet-resources" facet="HospitalityRestServer/web/Web" />
+    </root>
+  </artifact>
+</component>

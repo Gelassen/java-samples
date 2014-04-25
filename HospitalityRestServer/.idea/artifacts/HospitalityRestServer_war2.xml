@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="HospitalityRestServer:war2">
+    <output-path>$PROJECT_DIR$/out/artifacts/HospitalityRestServer_war2</output-path>
+    <root id="archive" name="HospitalityRestServer_war.war">
+      <element id="artifact" artifact-name="HospitalityRestServer:war exploded" />
+    </root>
+  </artifact>
+</component>

@@ -24,7 +24,7 @@ public class HotelPropertyEntity {
     }
 
     @Basic
-    @Column(name = "has_pool")
+    @Column(name = "has_pool", columnDefinition = "BIT", length = 1)
     public byte getHasPool() {
         return hasPool;
     }
@@ -34,7 +34,7 @@ public class HotelPropertyEntity {
     }
 
     @Basic
-    @Column(name = "has_tennis_court")
+    @Column(name = "has_tennis_court", columnDefinition = "BIT", length = 1)
     public byte getHasTennisCourt() {
         return hasTennisCourt;
     }
@@ -44,7 +44,7 @@ public class HotelPropertyEntity {
     }
 
     @Basic
-    @Column(name = "has_waterslides")
+    @Column(name = "has_waterslides", columnDefinition = "BIT", length = 1)
     public byte getHasWaterslides() {
         return hasWaterslides;
     }

@@ -46,7 +46,7 @@ public class HotelsEntity {
     }
 
     @Basic
-    @Column(name = "description")
+    @Column(name = "description", columnDefinition="char", length = 255)
     public String getDescription() {
         return description;
     }
@@ -56,7 +56,7 @@ public class HotelsEntity {
     }
 
     @Basic
-    @Column(name = "photo")
+    @Column(name = "photo", columnDefinition="longblob")
     public byte[] getPhoto() {
         return photo;
     }

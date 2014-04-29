@@ -22,7 +22,7 @@ public class AmmenitiesEntity {
     }
 
     @Basic
-    @Column(name = "has_breakfast")
+    @Column(name = "has_breakfast", columnDefinition = "BIT", length = 1)
     public byte getHasBreakfast() {
         return hasBreakfast;
     }

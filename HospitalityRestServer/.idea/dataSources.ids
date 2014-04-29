@@ -25,10 +25,10 @@
     </table>
     <table name="hotels" schema="" catalog="mydb" type="TABLE">
       <column name="id_hotel" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
-      <column name="name" sqlType="VARCHAR" precision="45" scale="0" nullable="true" jdbcType="12"/>
-      <column name="region" sqlType="VARCHAR" precision="45" scale="0" nullable="true" jdbcType="12"/>
-      <column name="description" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
-      <column name="photo" sqlType="BLOB" precision="65535" scale="0" nullable="false" jdbcType="-4"/>
+      <column name="name" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <column name="region" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <column name="description" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="photo" sqlType="LONGBLOB" precision="2147483647" scale="0" nullable="true" jdbcType="-4"/>
       <column name="id_hotel_property" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <primary-key name="PRIMARY" columns="id_hotel"/>
       <foreign-key name="hotels_ibfk_1" columns="id_hotel_property" ref-table="hotel_property" ref-schema="" ref-catalog="mydb" ref-columns="id_hotel_property" update-rule="3" delete-rule="3" deferrability="2"/>
@@ -42,16 +42,16 @@
       <column name="price" sqlType="DECIMAL" precision="10" scale="0" nullable="false" jdbcType="3" def="MA=="/>
       <column name="id_inventory" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <primary-key name="PRIMARY" columns="id_inventory"/>
-      <foreign-key name="inventories_ibfk_3" columns="id_ammenities" ref-table="ammenities" ref-schema="" ref-catalog="mydb" ref-columns="id_ammenities" update-rule="3" delete-rule="3" deferrability="2"/>
       <foreign-key name="inventories_ibfk_1" columns="id_hotel" ref-table="hotels" ref-schema="" ref-catalog="mydb" ref-columns="id_hotel" update-rule="3" delete-rule="3" deferrability="2"/>
       <foreign-key name="inventories_ibfk_2" columns="id_room" ref-table="room" ref-schema="" ref-catalog="mydb" ref-columns="id_room" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="inventories_ibfk_3" columns="id_ammenities" ref-table="ammenities" ref-schema="" ref-catalog="mydb" ref-columns="id_ammenities" update-rule="3" delete-rule="3" deferrability="2"/>
       <exported-key name="reservation_ibfk_1" table="reservation" schema="" catalog="mydb" columns="id_inventory"/>
       <index name="unique_id_inventory" unique="true" columns="id_inventory"/>
     </table>
     <table name="reservation" schema="" catalog="mydb" type="TABLE">
       <column name="id_inventory" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
-      <column name="check_in" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="true" jdbcType="-1"/>
-      <column name="check_out" sqlType="MEDIUMTEXT" precision="16777215" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="check_in" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <column name="check_out" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12"/>
       <column name="guest_name" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
       <column name="guest_phone" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="id_inventory"/>

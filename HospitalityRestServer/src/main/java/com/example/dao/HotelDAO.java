@@ -8,9 +8,6 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Root;
 import java.util.List;
 
 /**
@@ -30,11 +27,11 @@ public class HotelDAO {
 //        EntityManager em = emf.createEntityManager();
 
         // TODO complete me
-        CriteriaBuilder builder = em.getCriteriaBuilder();
-        CriteriaQuery<HotelsEntity> criteria = builder.createQuery(HotelsEntity.class);
-        Root<HotelsEntity> root = criteria.from(HotelsEntity.class);
-        criteria.select(root);
-        TypedQuery<HotelsEntity> resultQuery = em.createQuery(criteria);
+//        CriteriaBuilder builder = em.getCriteriaBuilder();
+//        CriteriaQuery<HotelsEntity> criteria = builder.createQuery(HotelsEntity.class);
+//        Root<HotelsEntity> root = criteria.from(HotelsEntity.class);
+//        criteria.select(root);
+        TypedQuery<HotelsEntity> resultQuery = em.createQuery("select h from HotelsEntity h", HotelsEntity.class);//em.createQuery(criteria);
         return resultQuery.getResultList();
     }
 

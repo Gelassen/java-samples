@@ -25,7 +25,7 @@ public class ReservationEntity {
     }
 
     @Basic
-    @Column(name = "check_in")
+    @Column(name = "check_in", columnDefinition="char (100)", length = 7)
     public String getCheckIn() {
         return checkIn;
     }
@@ -35,7 +35,7 @@ public class ReservationEntity {
     }
 
     @Basic
-    @Column(name = "check_out")
+    @Column(name = "check_out", columnDefinition="char(100)")
     public String getCheckOut() {
         return checkOut;
     }
@@ -45,7 +45,7 @@ public class ReservationEntity {
     }
 
     @Basic
-    @Column(name = "guest_name")
+    @Column(name = "guest_name", columnDefinition="char(100)")
     public String getGuestName() {
         return guestName;
     }
@@ -55,7 +55,7 @@ public class ReservationEntity {
     }
 
     @Basic
-    @Column(name = "guest_phone")
+    @Column(name = "guest_phone", columnDefinition="char(100)")
     public String getGuestPhone() {
         return guestPhone;
     }

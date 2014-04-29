@@ -45,7 +45,7 @@ public class RoomEntity {
     }
 
     @Basic
-    @Column(name = "booked")
+    @Column(name = "booked", columnDefinition = "BIT", length = 1)
     public byte getBooked() {
         return booked;
     }
@@ -55,7 +55,7 @@ public class RoomEntity {
     }
 
     @Basic
-    @Column(name = "locked")
+    @Column(name = "locked", columnDefinition = "BIT", length = 1)
     public byte getLocked() {
         return locked;
     }

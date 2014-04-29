@@ -27,7 +27,7 @@ public class RoomPropertyEntity {
     }
 
     @Basic
-    @Column(name = "has_tv")
+    @Column(name = "has_tv", columnDefinition = "BIT", length = 1)
     public byte getHasTv() {
         return hasTv;
     }
@@ -37,7 +37,7 @@ public class RoomPropertyEntity {
     }
 
     @Basic
-    @Column(name = "has_balcony")
+    @Column(name = "has_balcony", columnDefinition = "BIT", length = 1)
     public byte getHasBalcony() {
         return hasBalcony;
     }
@@ -47,7 +47,7 @@ public class RoomPropertyEntity {
     }
 
     @Basic
-    @Column(name = "has_conditioner")
+    @Column(name = "has_conditioner", columnDefinition = "BIT", length = 1)
     public byte getHasConditioner() {
         return hasConditioner;
     }
@@ -57,7 +57,7 @@ public class RoomPropertyEntity {
     }
 
     @Basic
-    @Column(name = "nice_view_on_sea")
+    @Column(name = "nice_view_on_sea", columnDefinition = "BIT", length = 1)
     public byte getNiceViewOnSea() {
         return niceViewOnSea;
     }
@@ -67,7 +67,7 @@ public class RoomPropertyEntity {
     }
 
     @Basic
-    @Column(name = "nice_view_on_pool")
+    @Column(name = "nice_view_on_pool", columnDefinition = "BIT", length = 1)
     public byte getNiceViewOnPool() {
         return niceViewOnPool;
     }
@@ -77,7 +77,7 @@ public class RoomPropertyEntity {
     }
 
     @Basic
-    @Column(name = "ugly_view_from_window")
+    @Column(name = "ugly_view_from_window", columnDefinition = "BIT", length = 1)
     public int getUglyViewFromWindow() {
         return uglyViewFromWindow;
     }

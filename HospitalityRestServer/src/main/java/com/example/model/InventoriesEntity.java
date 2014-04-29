@@ -1,6 +1,7 @@
 package com.example.model;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 
 /**
  * Created by dkazakov on 25.04.2014.
@@ -8,16 +9,16 @@ import javax.persistence.*;
 @Entity
 @Table(name = "inventories", schema = "", catalog = "mydb")
 public class InventoriesEntity {
-    private int price;
+    private BigDecimal price;
     private int idInventory;
 
     @Basic
     @Column(name = "price")
-    public int getPrice() {
+    public BigDecimal getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(BigDecimal price) {
         this.price = price;
     }
 
@@ -46,8 +47,8 @@ public class InventoriesEntity {
 
     @Override
     public int hashCode() {
-        int result = price;
-        result = 31 * result + idInventory;
-        return result;
+        BigDecimal result = price;
+        result = new BigDecimal(31 * result.intValue() + idInventory);
+        return result.intValue();
     }
 }

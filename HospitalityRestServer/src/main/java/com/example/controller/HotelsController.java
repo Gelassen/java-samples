@@ -1,6 +1,6 @@
 package com.example.controller;
 
-import com.example.model.inventory.Hotel;
+import com.example.model.HotelsEntity;
 import com.example.service.HotelService;
 
 import javax.ejb.EJB;
@@ -18,16 +18,12 @@ public class HotelsController {
     @EJB
     private HotelService hotelService;
 
-    /**
-     * @param startDate Start date of trip in UTC. Can be omitted
-     * @param endDate End date of trip in UTC. Can be omitted
-     * @return
-     */
+
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response getHotelsList(@QueryParam("startDate") String startDate,
                                   @QueryParam("endDate") String endDate) {
-        List<Hotel> list = hotelService.getAll();
+        List<HotelsEntity> list = hotelService.getAll();
         return ResponseFactory.response(Response.Status.OK, list);
     }
 
@@ -35,7 +31,7 @@ public class HotelsController {
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getInventoryByHotel(@PathParam("id") String hotelId) {
-        Hotel hotel = hotelService.getHotelById(hotelId);
+        HotelsEntity hotel = hotelService.getHotelById(hotelId);
         return ResponseFactory.response(Response.Status.OK, hotel);
     }
 

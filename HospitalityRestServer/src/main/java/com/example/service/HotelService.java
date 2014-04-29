@@ -1,6 +1,7 @@
 package com.example.service;
 
 import com.example.dao.HotelDAO;
+import com.example.model.HotelsEntity;
 import com.example.model.inventory.Hotel;
 
 import javax.ejb.EJB;
@@ -19,11 +20,11 @@ public class HotelService {
     @EJB
     private HotelDAO hotelDAO;
 
-    public List<Hotel> getAll() {
+    public List<HotelsEntity> getAll() {
         return hotelDAO.getAll();
     }
 
-    public Hotel getHotelById(final String id) {
+    public HotelsEntity getHotelById(final String id) {
         return hotelDAO.getHotelById(id);
     }
 

@@ -3,7 +3,6 @@ package com.example.dao;
 
 import com.example.Constants;
 import com.example.model.HotelsEntity;
-import com.example.model.inventory.Hotel;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -23,7 +22,13 @@ public class HotelDAO {
     @PersistenceContext(unitName = Constants.PERSISTENCE_UNIT)
     private EntityManager em;
 
+//    @Inject
+//    private EntityManager em;
+
     public List<HotelsEntity> getAll() {
+//        EntityManagerFactory emf = Persistence.createEntityManagerFactory("persistenceUnit");
+//        EntityManager em = emf.createEntityManager();
+
         // TODO complete me
         CriteriaBuilder builder = em.getCriteriaBuilder();
         CriteriaQuery<HotelsEntity> criteria = builder.createQuery(HotelsEntity.class);
@@ -33,7 +38,7 @@ public class HotelDAO {
         return resultQuery.getResultList();
     }
 
-    public Hotel getHotelById(final String id) {
+    public HotelsEntity getHotelById(final String id) {
         // TODO complete me
         return null;
     }

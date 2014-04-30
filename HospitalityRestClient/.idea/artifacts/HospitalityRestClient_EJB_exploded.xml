@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-ejb" name="HospitalityRestClient:EJB exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/HospitalityRestClient_EJB_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="HospitalityRestClient/ejb/EJB" />
+      <element id="module-output" name="HospitalityRestClient" />
+    </root>
+  </artifact>
+</component>

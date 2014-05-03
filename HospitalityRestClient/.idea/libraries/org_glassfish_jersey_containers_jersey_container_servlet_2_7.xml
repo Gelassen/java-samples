@@ -2,9 +2,6 @@
   <library name="org.glassfish.jersey.containers:jersey-container-servlet:2.7" type="repository">
     <properties maven-id="org.glassfish.jersey.containers:jersey-container-servlet:2.7" />
     <CLASSES>
-      <root url="jar://$MAVEN_REPOSITORY$/org/glassfish/jersey/containers/jersey-container-servlet/2.7/jersey-container-servlet-2.7.jar!/" />
-      <root url="jar://$MAVEN_REPOSITORY$/javax/servlet/javax.servlet-api/3.0.1/javax.servlet-api-3.0.1.jar!/" />
-      <root url="jar://$MAVEN_REPOSITORY$/org/glassfish/jersey/containers/jersey-container-servlet-core/2.7/jersey-container-servlet-core-2.7.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/glassfish/hk2/external/javax.inject/2.2.0/javax.inject-2.2.0.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/glassfish/jersey/core/jersey-server/2.7/jersey-server-2.7.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/glassfish/jersey/core/jersey-common/2.7/jersey-common-2.7.jar!/" />

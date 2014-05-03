@@ -1,6 +1,8 @@
 import actions.Action;
 import actions.ActionFactory;
+import service.HotelService;
 
+import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -12,20 +14,21 @@ import java.io.IOException;
  */
 public class MainServlet extends HttpServlet {
 
+//    @EJB
+//    private HotelService service;
+
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doPost(req, resp);
         processResponse(req, resp);
     }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doGet(req, resp);
         processResponse(req, resp);
     }
 
-    private void processResponse(HttpServletRequest req, HttpServletResponse resp) {
-        final String path = req.getServletPath();
+    private void processResponse(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        final String path = req.getRequestURI();
         Action action = new ActionFactory().getAction(path);
         action.perform(req, resp);
     }

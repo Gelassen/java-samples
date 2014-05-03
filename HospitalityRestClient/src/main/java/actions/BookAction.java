@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class BookAction implements Action {
     @Override
-    public String perform(HttpServletRequest request, HttpServletResponse response) {
-        return null;
+    public void perform(HttpServletRequest request, HttpServletResponse response) {
+
     }
 }

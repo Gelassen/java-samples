@@ -7,4 +7,6 @@ public class Constants {
 
     public static final String PERSISTENCE_UNIT = "persistenceUnit";
 
+    public static final String UTF_8 = "UTF-8";
+
 }

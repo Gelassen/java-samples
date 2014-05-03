@@ -8,7 +8,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "room", schema = "", catalog = "mydb")
 public class RoomEntity {
-    private String idRoom;
+    private int idRoom;
     private String roomType;
     private int peopleCapacity;
     private byte booked;
@@ -16,11 +16,11 @@ public class RoomEntity {
 
     @Id
     @Column(name = "id_room")
-    public String getIdRoom() {
+    public int getIdRoom() {
         return idRoom;
     }
 
-    public void setIdRoom(String idRoom) {
+    public void setIdRoom(int idRoom) {
         this.idRoom = idRoom;
     }
 
@@ -71,10 +71,10 @@ public class RoomEntity {
 
         RoomEntity that = (RoomEntity) o;
 
+        if (idRoom != that.idRoom) return false;
         if (booked != that.booked) return false;
         if (locked != that.locked) return false;
         if (peopleCapacity != that.peopleCapacity) return false;
-        if (idRoom != null ? !idRoom.equals(that.idRoom) : that.idRoom != null) return false;
         if (roomType != null ? !roomType.equals(that.roomType) : that.roomType != null) return false;
 
         return true;
@@ -82,7 +82,7 @@ public class RoomEntity {
 
     @Override
     public int hashCode() {
-        int result = idRoom != null ? idRoom.hashCode() : 0;
+        int result = idRoom;
         result = 31 * result + (roomType != null ? roomType.hashCode() : 0);
         result = 31 * result + peopleCapacity;
         result = 31 * result + (int) booked;

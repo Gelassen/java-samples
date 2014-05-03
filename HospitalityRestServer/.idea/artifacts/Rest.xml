@@ -42,6 +42,7 @@
           <element id="library" level="project" name="Maven: org.codehaus.jackson:jackson-mapper-asl:1.9.11" />
           <element id="library" level="project" name="Maven: org.codehaus.jackson:jackson-jaxrs:1.9.11" />
           <element id="library" level="project" name="Maven: org.codehaus.jackson:jackson-xc:1.9.11" />
+          <element id="library" level="project" name="com.google.code.gson:gson:2.2.4" />
         </element>
       </element>
       <element id="javaee-facet-resources" facet="HospitalityRestServer/web/Web" />

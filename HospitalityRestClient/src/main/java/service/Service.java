@@ -9,7 +9,7 @@ import javax.ws.rs.core.UriBuilder;
  */
 public abstract class Service {
 
-    protected static final String HOST = "http://localhost:8080";
+    protected static final String HOST = "http://localhost:8080/Rest";
     protected Client client;
 
     public Service() {

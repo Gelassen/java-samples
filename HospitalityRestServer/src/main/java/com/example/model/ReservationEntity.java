@@ -9,8 +9,8 @@ import javax.persistence.*;
 @Table(name = "reservation", schema = "", catalog = "mydb")
 public class ReservationEntity {
     private int idInventory;
-    private String checkIn;
-    private String checkOut;
+    private Long checkIn;
+    private Long checkOut;
     private String guestName;
     private String guestPhone;
 
@@ -25,22 +25,22 @@ public class ReservationEntity {
     }
 
     @Basic
-    @Column(name = "check_in", columnDefinition="char (100)", length = 7)
-    public String getCheckIn() {
+    @Column(name = "check_in", columnDefinition="bigint(20)")
+    public Long getCheckIn() {
         return checkIn;
     }
 
-    public void setCheckIn(String checkIn) {
+    public void setCheckIn(Long checkIn) {
         this.checkIn = checkIn;
     }
 
     @Basic
-    @Column(name = "check_out", columnDefinition="char(100)")
-    public String getCheckOut() {
+    @Column(name = "check_out", columnDefinition="bigint(20)")
+    public Long getCheckOut() {
         return checkOut;
     }
 
-    public void setCheckOut(String checkOut) {
+    public void setCheckOut(Long checkOut) {
         this.checkOut = checkOut;
     }
 

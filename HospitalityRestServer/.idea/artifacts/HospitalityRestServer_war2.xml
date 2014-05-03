@@ -3,6 +3,11 @@
     <output-path>$PROJECT_DIR$/out/artifacts/HospitalityRestServer_war2</output-path>
     <root id="archive" name="HospitalityRestServer_war.war">
       <element id="artifact" artifact-name="HospitalityRestServer:war exploded" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="com.google.code.gson:gson:2.2.4" />
+        </element>
+      </element>
     </root>
   </artifact>
 </component>

@@ -15,8 +15,8 @@ public class IntroAction implements Action {
     private HotelService hotelService;
 
     @Override
-    public String perform(HttpServletRequest request, HttpServletResponse response) {
+    public void perform(HttpServletRequest request, HttpServletResponse response) {
         // get params, validate them and send request to hotels
-        return null;
+
     }
 }

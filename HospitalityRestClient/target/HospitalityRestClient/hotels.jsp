@@ -4,30 +4,26 @@
 <html>
 <body>
 
-<%--<jsp:forward page="/redirect"/>--%>
-
-<div align="center">
-
-    <c:forEach items="${hotels}" var="hotel">
-
+    <div align="center">
         <table>
-            <tr>
-                <td>
-                    <img src="http://q-ec.bstatic.com/images/hotel/square128/216/21646823.jpg" alt="Adagio Paris Tour Eiffel, Париж" height="128" width="128">
-                </td>
-                <td>
-                    <p>${hotel.name}</p>
-                    <p>${hotel.region}</p>
-                    <p>${hotel.description}</p>
-                </td>
-            </tr>
+            <c:forEach items="${hotels}" var="hotel">
+                <div>
+                    <tr>
+                        <td>
+                            <a href="inventory?hotel_id=<c:out value="${hotel.idHotel}" />" >
+                                <img  src="http://q-ec.bstatic.com/images/hotel/square128/216/21646823.jpg" alt="Adagio Paris Tour Eiffel, Париж" height="128" width="128">
+                            </a>
+                        </td>
+                        <td>
+                            <p><c:out value="${hotel.name}" /></p>
+                            <p><c:out value="${hotel.region}" /></p>
+                            <p><c:out value="${hotel.description}" /></p>
+                        </td>
+                    </tr>
+                </div>
+            </c:forEach>
         </table>
+    </div>
 
-    </c:forEach>
-
-</div>
-
-
-<h2>Hello World!</h2>
 </body>
 </html>

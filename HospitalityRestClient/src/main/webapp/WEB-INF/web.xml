@@ -5,11 +5,9 @@
          http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
 
-
-
     <servlet>
         <servlet-name>MainServlet</servlet-name>
-        <servlet-class>MainServlet</servlet-class>
+        <servlet-class>com.example.utils.MainServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>
 
@@ -18,8 +16,13 @@
         <url-pattern>/hotels</url-pattern>
     </servlet-mapping>
 
+    <servlet-mapping>
+        <servlet-name>MainServlet</servlet-name>
+        <url-pattern>/inventory</url-pattern>
+    </servlet-mapping>
+
     <!--<servlet-mapping>-->
-        <!--<servlet-name>MainServlet</servlet-name>-->
+        <!--<servlet-name>com.example.utils.MainServlet</servlet-name>-->
         <!--<url-pattern>/*</url-pattern>-->
     <!--</servlet-mapping>-->
 

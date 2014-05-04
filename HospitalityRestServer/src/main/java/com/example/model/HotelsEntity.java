@@ -19,10 +19,10 @@ public class HotelsEntity implements HospitalityEntity{
     private String description;
 //    private byte[] photo;
 
-    private HotelPropertyEntity property;
+//    private HotelPropertyEntity property;
     private List<RoomEntity> rooms;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "hotel")
+    @OneToMany(mappedBy = "hotel")
     public List<RoomEntity> getRooms() {
         return rooms;
     }
@@ -82,14 +82,14 @@ public class HotelsEntity implements HospitalityEntity{
 //        this.photo = photo;
 //    }
 
-    @OneToOne(mappedBy = "hotel")
-    public HotelPropertyEntity getProperty() {
-        return property;
-    }
-
-    public void setProperty(HotelPropertyEntity property) {
-        this.property = property;
-    }
+//    @OneToOne(mappedBy = "hotel")
+//    public HotelPropertyEntity getProperty() {
+//        return property;
+//    }
+//
+//    public void setProperty(HotelPropertyEntity property) {
+//        this.property = property;
+//    }
 
     @Override
     public boolean equals(Object o) {

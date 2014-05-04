@@ -1,5 +1,7 @@
 package com.example.model;
 
+import com.example.model.inventory.Hotel;
+
 import javax.persistence.*;
 import java.math.BigDecimal;
 
@@ -9,11 +11,55 @@ import java.math.BigDecimal;
 @Entity
 @Table(name = "inventories", schema = "", catalog = "mydb")
 public class InventoriesEntity {
-    private BigDecimal price;
     private int idInventory;
+    private BigDecimal price;
+    private int idRoom;
+    private int idAmmenities;
+
+    private RoomEntity room;
+    private AmmenitiesEntity ammenities;
+    private ReservationEntity reservation;
+
+    @OneToOne
+    @JoinColumn (name = "id_inventory")
+    public ReservationEntity getReservation() {
+        return reservation;
+    }
+
+    public void setReservation(ReservationEntity reservation) {
+        this.reservation = reservation;
+    }
+
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "inventory")
+    public AmmenitiesEntity getAmmenities() {
+        return ammenities;
+    }
+
+    public void setAmmenities(AmmenitiesEntity ammenities) {
+        this.ammenities = ammenities;
+    }
+
+    @OneToOne(mappedBy = "inventory")
+    public RoomEntity getRoom() {
+        return room;
+    }
+
+    public void setRoom(RoomEntity room) {
+        this.room = room;
+    }
+
+    @Id
+    @Column(name = "id_inventory", unique = true, nullable = false)
+    public int getIdInventory() {
+        return idInventory;
+    }
+
+    public void setIdInventory(int idInventory) {
+        this.idInventory = idInventory;
+    }
 
     @Basic
-    @Column(name = "price")
+    @Column(name = "price", nullable = false)
     public BigDecimal getPrice() {
         return price;
     }
@@ -22,14 +68,24 @@ public class InventoriesEntity {
         this.price = price;
     }
 
-    @Id
-    @Column(name = "id_inventory")
-    public int getIdInventory() {
-        return idInventory;
+    @Basic
+    @Column(name = "id_room", nullable = false)
+    public int getIdRoom() {
+        return idRoom;
     }
 
-    public void setIdInventory(int idInventory) {
-        this.idInventory = idInventory;
+    public void setIdRoom(int idRoom) {
+        this.idRoom = idRoom;
+    }
+
+    @Basic
+    @Column(name = "id_ammenities", nullable = false)
+    public int getIdAmmenities() {
+        return idAmmenities;
+    }
+
+    public void setIdAmmenities(int idAmmenities) {
+        this.idAmmenities = idAmmenities;
     }
 
     @Override
@@ -40,15 +96,19 @@ public class InventoriesEntity {
         InventoriesEntity that = (InventoriesEntity) o;
 
         if (idInventory != that.idInventory) return false;
-        if (price != that.price) return false;
+        if (idRoom != that.idRoom) return false;
+        if (idAmmenities != that.idAmmenities) return false;
+        if (price != null ? !price.equals(that.price) : that.price != null) return false;
 
         return true;
     }
 
     @Override
     public int hashCode() {
-        BigDecimal result = price;
-        result = new BigDecimal(31 * result.intValue() + idInventory);
-        return result.intValue();
+        int result = idInventory;
+        result = 31 * result + (price != null ? price.hashCode() : 0);
+        result = 31 * result + idRoom;
+        result = 31 * result + idAmmenities;
+        return result;
     }
 }

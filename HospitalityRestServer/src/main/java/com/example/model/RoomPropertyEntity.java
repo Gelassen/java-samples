@@ -16,6 +16,18 @@ public class RoomPropertyEntity {
     private byte niceViewOnPool;
     private int uglyViewFromWindow;
 
+    private RoomEntity room;
+
+    @OneToOne
+    @JoinColumn( name = "id_room_property")
+    public RoomEntity getRoom() {
+        return room;
+    }
+
+    public void setRoom(RoomEntity room) {
+        this.room = room;
+    }
+
     @Id
     @Column(name = "id_room_property")
     public int getIdRoomProperty() {

@@ -14,6 +14,17 @@ public class ReservationEntity {
     private String guestName;
     private String guestPhone;
 
+    private InventoriesEntity inventory;
+
+    @OneToOne(mappedBy = "reservation")
+    public InventoriesEntity getInventory() {
+        return inventory;
+    }
+
+    public void setInventory(InventoriesEntity inventory) {
+        this.inventory = inventory;
+    }
+
     @Id
     @Column(name = "id_inventory")
     public int getIdInventory() {

@@ -1,12 +1,17 @@
 package com.example.model;
 
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * Created by dkazakov on 25.04.2014.
  */
 @Entity
 @Table(name = "hotels", schema = "", catalog = "mydb")
+@NamedQueries({
+        @NamedQuery(name = "HotelsEntity.findAll",
+                query = "select h from HotelsEntity h")
+})
 public class HotelsEntity implements HospitalityEntity{
     private int idHotel;
     private String name;
@@ -14,8 +19,21 @@ public class HotelsEntity implements HospitalityEntity{
     private String description;
 //    private byte[] photo;
 
+    private HotelPropertyEntity property;
+    private List<RoomEntity> rooms;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "hotel")
+    public List<RoomEntity> getRooms() {
+        return rooms;
+    }
+
+    public void setRooms(List<RoomEntity> rooms) {
+        this.rooms = rooms;
+    }
+
     @Id
-    @Column(name = "id_hotel")
+    @Column(name = "id_hotel", unique = true)
+    @GeneratedValue(strategy=GenerationType.AUTO)
     public int getIdHotel() {
         return idHotel;
     }
@@ -63,6 +81,15 @@ public class HotelsEntity implements HospitalityEntity{
 //    public void setPhoto(byte[] photo) {
 //        this.photo = photo;
 //    }
+
+    @OneToOne(mappedBy = "hotel")
+    public HotelPropertyEntity getProperty() {
+        return property;
+    }
+
+    public void setProperty(HotelPropertyEntity property) {
+        this.property = property;
+    }
 
     @Override
     public boolean equals(Object o) {

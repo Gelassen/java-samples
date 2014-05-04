@@ -10,6 +10,17 @@ import javax.persistence.*;
 public class AmmenitiesEntity {
     private int idAmmenities;
     private byte hasBreakfast;
+    private InventoriesEntity inventory;
+
+    @OneToOne
+    @JoinColumn(name = "id_ammenities")
+    public InventoriesEntity getInventory() {
+        return inventory;
+    }
+
+    public void setInventory(InventoriesEntity inventory) {
+        this.inventory = inventory;
+    }
 
     @Id
     @Column(name = "id_ammenities")

@@ -1,5 +1,7 @@
 package com.example.model;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
 
 /**
@@ -13,8 +15,12 @@ public class HotelPropertyEntity {
     private byte hasTennisCourt;
     private byte hasWaterslides;
 
+    private HotelsEntity hotel;
+
+
     @Id
-    @Column(name = "id_hotel_property")
+    @Column(name = "id_hotel_property", unique = true)
+    @GeneratedValue(strategy=GenerationType.AUTO)
     public int getIdHotelProperty() {
         return idHotelProperty;
     }
@@ -51,6 +57,16 @@ public class HotelPropertyEntity {
 
     public void setHasWaterslides(byte hasWaterslides) {
         this.hasWaterslides = hasWaterslides;
+    }
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_hotel_property")
+    public HotelsEntity getHotel() {
+        return hotel;
+    }
+
+    public void setHotel(HotelsEntity hotel) {
+        this.hotel = hotel;
     }
 
     @Override

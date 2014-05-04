@@ -14,6 +14,39 @@ public class RoomEntity {
     private byte booked;
     private byte locked;
 
+    private HotelsEntity hotel;
+    private InventoriesEntity inventory;
+    private RoomPropertyEntity roomProperty;
+
+    @OneToOne(mappedBy = "room")
+    public RoomPropertyEntity getRoom() {
+        return roomProperty;
+    }
+
+    public void setRoom(RoomPropertyEntity roomProperty) {
+        this.roomProperty = roomProperty;
+    }
+
+    @OneToOne
+    @JoinColumn(name = "id_room")
+    public InventoriesEntity getInventory() {
+        return inventory;
+    }
+
+    public void setInventory(InventoriesEntity inventory) {
+        this.inventory = inventory;
+    }
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_hotel")
+    public HotelsEntity getHotel() {
+        return hotel;
+    }
+
+    public void setHotel(HotelsEntity hotel) {
+        this.hotel = hotel;
+    }
+
     @Id
     @Column(name = "id_room")
     public int getIdRoom() {
@@ -64,6 +97,7 @@ public class RoomEntity {
         this.locked = locked;
     }
 
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -89,4 +123,6 @@ public class RoomEntity {
         result = 31 * result + (int) locked;
         return result;
     }
+
+
 }

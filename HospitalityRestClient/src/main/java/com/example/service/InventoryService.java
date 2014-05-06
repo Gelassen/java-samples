@@ -28,15 +28,12 @@ public class InventoryService extends Service{
 //        List<HotelsEntity> hotels = target.request(MediaType.APPLICATION_JSON_TYPE).get(genericType);
 
         List<InventoriesEntity> inventories = new Mock().getInventories();
-
         return inventories;
     }
 
     @Override
     protected UriBuilder preparePath() {
         return UriBuilder.fromUri(HOST).path("rest").path("inventory");
-//        return new JerseyUriBuilder().host(URLEncoder.encode(HOST))
-//                .path("Rest").path("rest").path("hotels");
     }
 
 }

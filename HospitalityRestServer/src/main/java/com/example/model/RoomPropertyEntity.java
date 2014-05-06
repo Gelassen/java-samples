@@ -9,12 +9,12 @@ import javax.persistence.*;
 @Table(name = "room_property", schema = "", catalog = "mydb")
 public class RoomPropertyEntity {
     private int idRoomProperty;
-    private byte hasTv;
-    private byte hasBalcony;
-    private byte hasConditioner;
-    private byte niceViewOnSea;
-    private byte niceViewOnPool;
-    private int uglyViewFromWindow;
+    private Boolean hasTv;
+    private Boolean hasBalcony;
+    private Boolean hasConditioner;
+    private Boolean niceViewOnSea;
+    private Boolean niceViewOnPool;
+    private Boolean uglyViewFromWindow;
 
     private RoomEntity room;
 
@@ -40,61 +40,61 @@ public class RoomPropertyEntity {
 
     @Basic
     @Column(name = "has_tv", columnDefinition = "BIT", length = 1)
-    public byte getHasTv() {
+    public Boolean getHasTv() {
         return hasTv;
     }
 
-    public void setHasTv(byte hasTv) {
+    public void setHasTv(Boolean hasTv) {
         this.hasTv = hasTv;
     }
 
     @Basic
     @Column(name = "has_balcony", columnDefinition = "BIT", length = 1)
-    public byte getHasBalcony() {
+    public Boolean getHasBalcony() {
         return hasBalcony;
     }
 
-    public void setHasBalcony(byte hasBalcony) {
+    public void setHasBalcony(Boolean hasBalcony) {
         this.hasBalcony = hasBalcony;
     }
 
     @Basic
     @Column(name = "has_conditioner", columnDefinition = "BIT", length = 1)
-    public byte getHasConditioner() {
+    public Boolean getHasConditioner() {
         return hasConditioner;
     }
 
-    public void setHasConditioner(byte hasConditioner) {
+    public void setHasConditioner(Boolean hasConditioner) {
         this.hasConditioner = hasConditioner;
     }
 
     @Basic
     @Column(name = "nice_view_on_sea", columnDefinition = "BIT", length = 1)
-    public byte getNiceViewOnSea() {
+    public Boolean getNiceViewOnSea() {
         return niceViewOnSea;
     }
 
-    public void setNiceViewOnSea(byte niceViewOnSea) {
+    public void setNiceViewOnSea(Boolean niceViewOnSea) {
         this.niceViewOnSea = niceViewOnSea;
     }
 
     @Basic
     @Column(name = "nice_view_on_pool", columnDefinition = "BIT", length = 1)
-    public byte getNiceViewOnPool() {
+    public Boolean getNiceViewOnPool() {
         return niceViewOnPool;
     }
 
-    public void setNiceViewOnPool(byte niceViewOnPool) {
+    public void setNiceViewOnPool(Boolean niceViewOnPool) {
         this.niceViewOnPool = niceViewOnPool;
     }
 
     @Basic
     @Column(name = "ugly_view_from_window", columnDefinition = "BIT", length = 1)
-    public int getUglyViewFromWindow() {
+    public Boolean getUglyViewFromWindow() {
         return uglyViewFromWindow;
     }
 
-    public void setUglyViewFromWindow(int uglyViewFromWindow) {
+    public void setUglyViewFromWindow(Boolean uglyViewFromWindow) {
         this.uglyViewFromWindow = uglyViewFromWindow;
     }
 
@@ -119,12 +119,12 @@ public class RoomPropertyEntity {
     @Override
     public int hashCode() {
         int result = idRoomProperty;
-        result = 31 * result + (int) hasTv;
-        result = 31 * result + (int) hasBalcony;
-        result = 31 * result + (int) hasConditioner;
-        result = 31 * result + (int) niceViewOnSea;
-        result = 31 * result + (int) niceViewOnPool;
-        result = 31 * result + uglyViewFromWindow;
+        result = 31 * result + (hasTv ? 1 : 0);
+        result = 31 * result + (hasBalcony ? 1 : 0);
+        result = 31 * result + (hasConditioner ? 1 : 0);
+        result = 31 * result + (niceViewOnSea ? 1 : 0);
+        result = 31 * result + (niceViewOnPool ? 1 : 0);
+        result = 31 * result + (uglyViewFromWindow ? 1 : 0);
         return result;
     }
 }

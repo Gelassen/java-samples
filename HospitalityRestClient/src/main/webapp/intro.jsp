@@ -21,7 +21,7 @@
 
     <div align="center">
 
-        <form method="post" action="/hotels" >
+        <form method="post" action="hotels" >
             <label>Region:</label>     <input type="text" name="region"> <br>
             <label>Start date:</label> <input type="date" name="checkin" /> <br>
             <label>End date:</label>   <input type="date" name="checkout" /> <br>

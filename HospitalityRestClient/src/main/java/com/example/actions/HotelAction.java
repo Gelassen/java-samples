@@ -1,7 +1,8 @@
 package com.example.actions;
 
-import com.example.service.HotelService;
 import com.example.model.HotelsEntity;
+import com.example.service.HotelService;
+import com.example.utils.Session;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -33,10 +34,14 @@ public class HotelAction implements Action {
 //            response.sendRedirect("intro.jsp");
 //            return;
 //        }
+        Session session = new Session(request);
+        session.setCheckin(checkin);
+        session.setCheckout(checkout);
+        session.setPeopleCapacity(capacity);
+        session.setDays();
 
         List<HotelsEntity> hotels = hotelService.getHotels(checkin, checkout, Integer.valueOf(capacity), region);
         request.setAttribute("hotels", hotels);
         request.getRequestDispatcher("hotels.jsp").forward(request, response);
-//        response.sendRedirect("hotels.jsp");
     }
 }

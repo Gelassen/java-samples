@@ -1,7 +1,5 @@
 package com.example.model;
 
-import com.example.model.inventory.Hotel;
-
 import javax.persistence.*;
 import java.math.BigDecimal;
 
@@ -12,9 +10,9 @@ import java.math.BigDecimal;
 @Table(name = "inventories", schema = "", catalog = "mydb")
 public class InventoriesEntity {
     private int idInventory;
-    private BigDecimal price;
     private int idRoom;
     private int idAmmenities;
+    private BigDecimal price;
 
     private RoomEntity room;
     private AmmenitiesEntity ammenities;
@@ -87,6 +85,7 @@ public class InventoriesEntity {
     public void setIdAmmenities(int idAmmenities) {
         this.idAmmenities = idAmmenities;
     }
+
 
     @Override
     public boolean equals(Object o) {

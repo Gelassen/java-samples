@@ -10,6 +10,5 @@ import java.io.IOException;
 public class WelcomeAction implements Action {
     @Override
     public void perform(HttpServletRequest request, HttpServletResponse response) throws IOException {
-
     }
 }

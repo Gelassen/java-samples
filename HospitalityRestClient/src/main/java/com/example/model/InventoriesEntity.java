@@ -2,6 +2,7 @@ package com.example.model;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 /**
  * Created by dkazakov on 25.04.2014.
@@ -57,9 +58,9 @@ public class InventoriesEntity {
     }
 
     @Basic
-    @Column(name = "price", nullable = false)
+    @Column(name = "price", nullable = false, precision = 9,scale = 2)
     public BigDecimal getPrice() {
-        return price;
+        return price.setScale(2, RoundingMode.CEILING);
     }
 
     public void setPrice(BigDecimal price) {

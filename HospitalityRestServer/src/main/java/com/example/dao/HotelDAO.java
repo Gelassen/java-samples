@@ -31,8 +31,23 @@ public class HotelDAO {
 //        CriteriaQuery<HotelsEntity> criteria = builder.createQuery(HotelsEntity.class);
 //        Root<HotelsEntity> root = criteria.from(HotelsEntity.class);
 //        criteria.select(root);
+//        List<HotelsEntity> hotels = new ArrayList<HotelsEntity>();
+//        SessionFactory factory = HibernateUtils.getInstance();
+//        Session session = factory.openSession();
+//        try {
+////            session.beginTransaction();
+//            hotels = session.createCriteria(HotelsEntity.class).list();
+////            session.getTransaction().commit();
+//        } catch (HibernateException e) {
+////            session.getTransaction().rollback();
+//        } finally {
+//            if (session != null) {
+//                session.close();
+//            }
+//        }
         TypedQuery<HotelsEntity> resultQuery = em.createQuery("select h from HotelsEntity h", HotelsEntity.class);//em.createQuery(criteria);
         return resultQuery.getResultList();
+//        return hotels;
     }
 
     public HotelsEntity getHotelById(final String id) {

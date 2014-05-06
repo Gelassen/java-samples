@@ -9,7 +9,7 @@ import javax.persistence.*;
 @Table(name = "ammenities", schema = "", catalog = "mydb")
 public class AmmenitiesEntity {
     private int idAmmenities;
-    private byte hasBreakfast;
+    private Boolean hasBreakfast;
     private InventoriesEntity inventory;
 
     @OneToOne
@@ -34,11 +34,11 @@ public class AmmenitiesEntity {
 
     @Basic
     @Column(name = "has_breakfast", columnDefinition = "BIT", length = 1)
-    public byte getHasBreakfast() {
+    public Boolean getHasBreakfast() {
         return hasBreakfast;
     }
 
-    public void setHasBreakfast(byte hasBreakfast) {
+    public void setHasBreakfast(Boolean hasBreakfast) {
         this.hasBreakfast = hasBreakfast;
     }
 
@@ -58,7 +58,7 @@ public class AmmenitiesEntity {
     @Override
     public int hashCode() {
         int result = idAmmenities;
-        result = 31 * result + (int) hasBreakfast;
+        result = 31 * result + (hasBreakfast ? 1 : 0);
         return result;
     }
 }

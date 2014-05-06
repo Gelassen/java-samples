@@ -11,8 +11,8 @@ public class RoomEntity {
     private int idRoom;
     private String roomType;
     private int peopleCapacity;
-    private byte booked;
-    private byte locked;
+    private Boolean  booked;
+    private Boolean locked;
 
     private HotelsEntity hotel;
     private InventoriesEntity inventory;
@@ -79,21 +79,21 @@ public class RoomEntity {
 
     @Basic
     @Column(name = "booked", columnDefinition = "BIT", length = 1)
-    public byte getBooked() {
+    public Boolean getBooked() {
         return booked;
     }
 
-    public void setBooked(byte booked) {
+    public void setBooked(Boolean  booked) {
         this.booked = booked;
     }
 
     @Basic
     @Column(name = "locked", columnDefinition = "BIT", length = 1)
-    public byte getLocked() {
+    public Boolean  getLocked() {
         return locked;
     }
 
-    public void setLocked(byte locked) {
+    public void setLocked(Boolean  locked) {
         this.locked = locked;
     }
 
@@ -119,8 +119,8 @@ public class RoomEntity {
         int result = idRoom;
         result = 31 * result + (roomType != null ? roomType.hashCode() : 0);
         result = 31 * result + peopleCapacity;
-        result = 31 * result + (int) booked;
-        result = 31 * result + (int) locked;
+        result = 31 * result + (booked ? 1 : 0);
+        result = 31 * result + (locked ? 1 : 0);
         return result;
     }
 

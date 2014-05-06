@@ -21,6 +21,11 @@
         <url-pattern>/inventory</url-pattern>
     </servlet-mapping>
 
+    <servlet-mapping>
+        <servlet-name>MainServlet</servlet-name>
+        <url-pattern>/book</url-pattern>
+    </servlet-mapping>
+
     <!--<servlet-mapping>-->
         <!--<servlet-name>com.example.utils.MainServlet</servlet-name>-->
         <!--<url-pattern>/*</url-pattern>-->

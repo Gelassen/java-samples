@@ -11,12 +11,11 @@
         <class>com.example.model.ReservationEntity</class>
         <class>com.example.model.RoomEntity</class>
         <class>com.example.model.RoomPropertyEntity</class>
-        <class>com.example.model.InventoriesFake</class>
         <exclude-unlisted-classes>false</exclude-unlisted-classes>
         <properties>
             <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/mydb"/>
             <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
-            <property name="hibernate.connection.username" value="root"/>
+            <property name="hibernate.connection.username" value="dbroot"/>
             <property name="hibernate.connection.password" value="1111ZZ"/>
             <property name="hibernate.transaction.jta.platform"
                       value="org.hibernate.engine.transaction.jta.platform.internal.SunOneJtaPlatform"/>

@@ -1,7 +1,6 @@
 package com.example.model;
 
 import javax.persistence.*;
-import java.util.List;
 
 /**
  * Created by dkazakov on 25.04.2014.
@@ -19,17 +18,28 @@ public class HotelsEntity implements HospitalityEntity{
     private String description;
 //    private byte[] photo;
 
-//    private HotelPropertyEntity property;
-    private List<RoomEntity> rooms;
+    private HotelPropertyEntity property;
+//    private List<RoomEntity> rooms;
 
-    @OneToMany(mappedBy = "hotel")
-    public List<RoomEntity> getRooms() {
-        return rooms;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_hotel_property")
+    public HotelPropertyEntity getProperty() {
+        return property;
     }
 
-    public void setRooms(List<RoomEntity> rooms) {
-        this.rooms = rooms;
+    public void setProperty(HotelPropertyEntity property) {
+        this.property = property;
     }
+
+//    @OneToMany(mappedBy = "hotel")
+//    public List<RoomEntity> getRooms() {
+//        return rooms;
+//    }
+//
+//    public void setRooms(List<RoomEntity> rooms) {
+//        this.rooms = rooms;
+//    }
 
     @Id
     @Column(name = "id_hotel", unique = true)
@@ -82,14 +92,6 @@ public class HotelsEntity implements HospitalityEntity{
 //        this.photo = photo;
 //    }
 
-//    @OneToOne(mappedBy = "hotel")
-//    public HotelPropertyEntity getProperty() {
-//        return property;
-//    }
-//
-//    public void setProperty(HotelPropertyEntity property) {
-//        this.property = property;
-//    }
 
     @Override
     public boolean equals(Object o) {

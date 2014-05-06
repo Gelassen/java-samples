@@ -1,7 +1,5 @@
 package com.example.model;
 
-import org.hibernate.annotations.GenericGenerator;
-
 import javax.persistence.*;
 
 /**
@@ -15,7 +13,7 @@ public class HotelPropertyEntity {
     private byte hasTennisCourt;
     private byte hasWaterslides;
 
-    private HotelsEntity hotel;
+//    private HotelsEntity hotel;
 
 
     @Id
@@ -59,15 +57,14 @@ public class HotelPropertyEntity {
         this.hasWaterslides = hasWaterslides;
     }
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_hotel_property")
-    public HotelsEntity getHotel() {
-        return hotel;
-    }
-
-    public void setHotel(HotelsEntity hotel) {
-        this.hotel = hotel;
-    }
+//    @OneToOne(mappedBy = "property")
+//    public HotelsEntity getHotel() {
+//        return hotel;
+//    }
+//
+//    public void setHotel(HotelsEntity hotel) {
+//        this.hotel = hotel;
+//    }
 
     @Override
     public boolean equals(Object o) {

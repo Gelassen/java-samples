@@ -23,9 +23,10 @@ public class HotelService extends Service{
                                  final String region) {
         // TODO extend params
         GenericType<List<HotelsEntity>> genericType = new GenericType<List<com.example.model.HotelsEntity>>(){};
-        WebTarget target = client.target(preparePath());
-//                .queryParam("startDate", checkin)
-//                .queryParam("startDate", checkout);
+        WebTarget target = client.target(preparePath())
+                .queryParam("checkIn", checkin)
+                .queryParam("checkOut", checkout)
+                .queryParam("capacity", capacity);
 //        List<HotelsEntity> hotels = target.request(MediaType.APPLICATION_JSON_TYPE).get(genericType);
 
         List<HotelsEntity> hotels = new Mock().getHotels();

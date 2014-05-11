@@ -1,5 +1,7 @@
 package com.example.model;
 
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+
 import javax.persistence.*;
 
 /**
@@ -7,6 +9,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "room_property", schema = "", catalog = "mydb")
+@JsonIgnoreProperties(value = "room")
 public class RoomPropertyEntity {
     private int idRoomProperty;
     private Boolean hasTv;

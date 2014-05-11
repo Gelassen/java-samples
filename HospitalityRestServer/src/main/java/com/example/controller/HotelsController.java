@@ -21,9 +21,11 @@ public class HotelsController {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getHotelsList(@QueryParam("startDate") String startDate,
-                                  @QueryParam("endDate") String endDate) {
-        List<HotelsEntity> list = hotelService.getAll();
+    public Response getHotelsList(@QueryParam("checkIn") Long checkIn,
+                                  @QueryParam("checkOut") Long checkOut,
+                                  @QueryParam("capacity") Integer capacity
+                                  /**TODO add region and hotel property*/) {
+        List<HotelsEntity> list = hotelService.getAll(checkIn, checkOut, capacity, null);
         return ResponseFactory.response(Response.Status.OK, list);
     }
 

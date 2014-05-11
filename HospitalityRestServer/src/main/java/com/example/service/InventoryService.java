@@ -1,6 +1,7 @@
 package com.example.service;
 
 import com.example.dao.InventoryDAO;
+import com.example.model.InventoriesEntity;
 import com.example.model.inventory.Inventory;
 
 import javax.ejb.EJB;
@@ -17,7 +18,7 @@ public class InventoryService {
     @EJB
     private InventoryDAO inventoryDAO;
 
-    public List<Inventory> getInventoriesByHotel(String hotel) {
+    public List<InventoriesEntity> getInventoriesByHotel(String hotel) {
         return inventoryDAO.getInventoriesByHotel(hotel);
     }
 

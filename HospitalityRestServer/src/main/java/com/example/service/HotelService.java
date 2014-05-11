@@ -1,11 +1,13 @@
 package com.example.service;
 
 import com.example.dao.HotelDAO;
+import com.example.model.HotelPropertyEntity;
 import com.example.model.HotelsEntity;
 import com.example.model.inventory.Hotel;
 
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 /**
@@ -22,6 +24,11 @@ public class HotelService {
 
     public List<HotelsEntity> getAll() {
         return hotelDAO.getAll();
+    }
+
+    public List<HotelsEntity> getAll(@NotNull Long checkIn, @NotNull Long checkOut,
+                                     @NotNull int capacity, HotelPropertyEntity property) {
+        return hotelDAO.getAll(checkIn, checkOut, capacity, property);
     }
 
     public HotelsEntity getHotelById(final String id) {

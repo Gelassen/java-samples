@@ -2,12 +2,14 @@ package com.example.dao;
 
 
 import com.example.Constants;
+import com.example.model.HotelPropertyEntity;
 import com.example.model.HotelsEntity;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 /**
@@ -18,9 +20,6 @@ public class HotelDAO {
 
     @PersistenceContext(unitName = Constants.PERSISTENCE_UNIT)
     private EntityManager em;
-
-//    @Inject
-//    private EntityManager em;
 
     public List<HotelsEntity> getAll() {
 //        EntityManagerFactory emf = Persistence.createEntityManagerFactory("persistenceUnit");
@@ -45,12 +44,25 @@ public class HotelDAO {
 //                session.close();
 //            }
 //        }
-        TypedQuery<HotelsEntity> resultQuery = em.createQuery("select h from HotelsEntity h", HotelsEntity.class);//em.createQuery(criteria);
-        return resultQuery.getResultList();
+        TypedQuery<HotelsEntity> resultQuery =  em.createNamedQuery("HotelsEntity.findAll", HotelsEntity.class);
+        List<HotelsEntity> list = resultQuery.getResultList();
+        return list;
 //        return hotels;
     }
 
-    public HotelsEntity getHotelById(final String id) {
+    public List<HotelsEntity> getAll(@NotNull Long checkIn, @NotNull Long checkOut,
+                                     @NotNull int capacity, HotelPropertyEntity property) {
+        TypedQuery<HotelsEntity> resultQuery =  em.createNamedQuery("HotelsEntity.findAllWithFilter", HotelsEntity.class);
+        resultQuery.setParameter("checkin", checkIn);
+        resultQuery.setParameter("checkout", checkOut);
+        resultQuery.setParameter("capacity", capacity);
+        resultQuery.setParameter("pool", property == null ? false : property.getHasPool());
+        resultQuery.setParameter("tennis", property == null ? false : property.getHasTennisCourt());
+        resultQuery.setParameter("waterslides", property == null ? false : property.getHasWaterslides());
+        return resultQuery.getResultList();
+    }
+
+    public HotelsEntity getHotelById(@NotNull String hotelId) {
         // TODO complete me
         return null;
     }

@@ -1,5 +1,6 @@
 package com.example.controller;
 
+import com.example.model.InventoriesEntity;
 import com.example.model.inventory.Inventory;
 import com.example.service.InventoryService;
 
@@ -22,7 +23,7 @@ public class InventoryController {
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getInventoriesByHotel(@PathParam("id") String hotelId) {
-        List<Inventory> inventories = inventoryService.getInventoriesByHotel(hotelId);
+        List<InventoriesEntity> inventories = inventoryService.getInventoriesByHotel(hotelId);
         return ResponseFactory.response(Response.Status.OK, inventories);
     }
 

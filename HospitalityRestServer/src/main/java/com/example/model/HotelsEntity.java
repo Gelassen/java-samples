@@ -1,6 +1,8 @@
 package com.example.model;
 
+
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * Created by dkazakov on 25.04.2014.
@@ -9,7 +11,27 @@ import javax.persistence.*;
 @Table(name = "hotels", schema = "", catalog = "mydb")
 @NamedQueries({
         @NamedQuery(name = "HotelsEntity.findAll",
-                query = "select h from HotelsEntity h")
+                query = "select h from HotelsEntity h " +
+                        "left join fetch h.property " +
+                        "left join fetch h.rooms"),
+        @NamedQuery(name = "HotelsEntity.findAllWithFilter",
+                query = "select h from HotelsEntity h " +
+                        "left join fetch h.property hProperty " +
+                        "left join fetch h.rooms hRooms " +
+                        "left join fetch hRooms.inventory inventory " +
+                        "left join fetch inventory.reservation reservation " +
+                        "where " +
+                        "hProperty.hasPool = :pool " +
+                            "AND hProperty.hasTennisCourt = :tennis " +
+                            "AND hProperty.hasWaterslides = :waterslides " +
+                            "AND hRooms.peopleCapacity >= :capacity " +
+                            "AND hRooms.booked = false " +
+                            "AND (" +
+                                "(reservation.checkIn <= :checkin AND reservation.checkOut >= :checkin) " +
+                                "OR " +
+                                "(reservation.checkIn >= :checkin AND reservation.checkOut <= :checkout) " +
+                                "OR " +
+                                "(reservation.checkIn >= :checkin AND reservation.checkOut >= :checkout) )")
 })
 public class HotelsEntity implements HospitalityEntity{
     private int idHotel;
@@ -19,7 +41,7 @@ public class HotelsEntity implements HospitalityEntity{
 //    private byte[] photo;
 
     private HotelPropertyEntity property;
-//    private List<RoomEntity> rooms;
+    private List<RoomEntity> rooms;
 
 
     @OneToOne(fetch = FetchType.LAZY)
@@ -32,14 +54,14 @@ public class HotelsEntity implements HospitalityEntity{
         this.property = property;
     }
 
-//    @OneToMany(mappedBy = "hotel")
-//    public List<RoomEntity> getRooms() {
-//        return rooms;
-//    }
-//
-//    public void setRooms(List<RoomEntity> rooms) {
-//        this.rooms = rooms;
-//    }
+    @OneToMany(mappedBy = "hotel")
+    public List<RoomEntity> getRooms() {
+        return rooms;
+    }
+
+    public void setRooms(List<RoomEntity> rooms) {
+        this.rooms = rooms;
+    }
 
     @Id
     @Column(name = "id_hotel", unique = true)

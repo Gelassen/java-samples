@@ -1,5 +1,7 @@
 package com.example.model;
 
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+
 import javax.persistence.*;
 
 /**
@@ -7,13 +9,14 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "hotel_property", schema = "", catalog = "mydb")
+@JsonIgnoreProperties(value = "hotel")
 public class HotelPropertyEntity {
     private int idHotelProperty;
-    private byte hasPool;
-    private byte hasTennisCourt;
-    private byte hasWaterslides;
+    private Boolean hasPool;
+    private Boolean hasTennisCourt;
+    private Boolean hasWaterslides;
 
-//    private HotelsEntity hotel;
+    private HotelsEntity hotel;
 
 
     @Id
@@ -29,42 +32,42 @@ public class HotelPropertyEntity {
 
     @Basic
     @Column(name = "has_pool", columnDefinition = "BIT", length = 1)
-    public byte getHasPool() {
+    public Boolean getHasPool() {
         return hasPool;
     }
 
-    public void setHasPool(byte hasPool) {
+    public void setHasPool(Boolean hasPool) {
         this.hasPool = hasPool;
     }
 
     @Basic
     @Column(name = "has_tennis_court", columnDefinition = "BIT", length = 1)
-    public byte getHasTennisCourt() {
+    public Boolean getHasTennisCourt() {
         return hasTennisCourt;
     }
 
-    public void setHasTennisCourt(byte hasTennisCourt) {
+    public void setHasTennisCourt(Boolean hasTennisCourt) {
         this.hasTennisCourt = hasTennisCourt;
     }
 
     @Basic
     @Column(name = "has_waterslides", columnDefinition = "BIT", length = 1)
-    public byte getHasWaterslides() {
+    public Boolean getHasWaterslides() {
         return hasWaterslides;
     }
 
-    public void setHasWaterslides(byte hasWaterslides) {
+    public void setHasWaterslides(Boolean hasWaterslides) {
         this.hasWaterslides = hasWaterslides;
     }
 
-//    @OneToOne(mappedBy = "property")
-//    public HotelsEntity getHotel() {
-//        return hotel;
-//    }
-//
-//    public void setHotel(HotelsEntity hotel) {
-//        this.hotel = hotel;
-//    }
+    @OneToOne(mappedBy = "property")
+    public HotelsEntity getHotel() {
+        return hotel;
+    }
+
+    public void setHotel(HotelsEntity hotel) {
+        this.hotel = hotel;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -84,9 +87,9 @@ public class HotelPropertyEntity {
     @Override
     public int hashCode() {
         int result = idHotelProperty;
-        result = 31 * result + (int) hasPool;
-        result = 31 * result + (int) hasTennisCourt;
-        result = 31 * result + (int) hasWaterslides;
+        result = 31 * result + (hasPool ? 1 : -1);
+        result = 31 * result + (hasTennisCourt ? 2 : -2);
+        result = 31 * result + (hasWaterslides ? 3 : -3);
         return result;
     }
 }

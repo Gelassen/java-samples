@@ -1,5 +1,7 @@
 package com.example.model;
 
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.math.BigDecimal;
 
@@ -8,6 +10,14 @@ import java.math.BigDecimal;
  */
 @Entity
 @Table(name = "inventories", schema = "", catalog = "mydb")
+@NamedQueries({
+        @NamedQuery(name = "InventoriesEntity.getInventoryByHotel",
+                query = "select i from InventoriesEntity i " +
+                        "left join fetch i.room " +
+                        "left join fetch i.ammenities " +
+                        "where i.room.hotel.idHotel = :idHotel")
+})
+@JsonIgnoreProperties(value = "room")
 public class InventoriesEntity {
     private int idInventory;
     private int idRoom;

@@ -1,5 +1,7 @@
 package com.example.model;
 
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+
 import javax.persistence.*;
 
 /**
@@ -7,6 +9,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "room", schema = "", catalog = "mydb")
+@JsonIgnoreProperties(value = "hotel")
 public class RoomEntity {
     private int idRoom;
     private String roomType;
@@ -19,11 +22,11 @@ public class RoomEntity {
     private RoomPropertyEntity roomProperty;
 
     @OneToOne(mappedBy = "room")
-    public RoomPropertyEntity getRoom() {
+    public RoomPropertyEntity getRoomProperty() {
         return roomProperty;
     }
 
-    public void setRoom(RoomPropertyEntity roomProperty) {
+    public void setRoomProperty(RoomPropertyEntity roomProperty) {
         this.roomProperty = roomProperty;
     }
 

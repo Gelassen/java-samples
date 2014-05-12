@@ -16,17 +16,14 @@ import java.lang.reflect.Type;
 import java.nio.charset.Charset;
 
 /**
- * Created by Gleichmut on 5/3/2014.
+ * Created by dkazakov on 12.05.2014.
  */
-//@Provider
-//@Produces(MediaType.APPLICATION_JSON)
-//@Consumes(MediaType.APPLICATION_JSON)
-public class JsonProvider<T> implements MessageBodyReader<T>, MessageBodyWriter<T> {
+public abstract class JsonProvider<T> implements MessageBodyReader<T>, MessageBodyWriter<T> {
 
     @Override
     public boolean isReadable(Class<?> type, Type genericType, Annotation[] annotations, MediaType mediaType) {
-        return MediaType.APPLICATION_JSON.equals(mediaType.getType()) &&
-                MediaType.APPLICATION_JSON.equals(mediaType.getSubtype());
+        return MediaType.APPLICATION_JSON_TYPE.getType().equals(mediaType.getType()) &&
+                MediaType.APPLICATION_JSON_TYPE.getSubtype().equals(mediaType.getSubtype());
     }
 
     @Override
@@ -38,8 +35,8 @@ public class JsonProvider<T> implements MessageBodyReader<T>, MessageBodyWriter<
 
     @Override
     public boolean isWriteable(Class<?> type, Type genericType, Annotation[] annotations, MediaType mediaType) {
-        return MediaType.APPLICATION_JSON.equals(mediaType.getType()) &&
-                MediaType.APPLICATION_JSON.equals(mediaType.getSubtype());
+        return MediaType.APPLICATION_JSON_TYPE.getType().equals(mediaType.getType()) &&
+                MediaType.APPLICATION_JSON_TYPE.getSubtype().equals(mediaType.getSubtype());
     }
 
     @Override

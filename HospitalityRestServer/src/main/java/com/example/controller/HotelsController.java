@@ -26,6 +26,10 @@ public class HotelsController {
                                   @QueryParam("capacity") Integer capacity
                                   /**TODO add region and hotel property*/) {
         List<HotelsEntity> list = hotelService.getAll(checkIn, checkOut, capacity, null);
+//        List<FakeClass> l = new ArrayList<FakeClass>();
+//        FakeClass fake = new FakeClass();
+//        fake.setField("test field");
+//        l.add(fake);
         return ResponseFactory.response(Response.Status.OK, list);
     }
 

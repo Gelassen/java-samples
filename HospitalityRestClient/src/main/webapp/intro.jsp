@@ -1,34 +1,44 @@
 <html>
 <head>
 
-    <style type="text/css">
-        label{
-            /*display: inline-block;*/
-            /*float: left;*/
-            /*clear: left;*/
-            /*width: 1280px;*/
-            /*text-align: right;*/
-        }
-        input {
-            /*display: inline-block;*/
-            /*float: left;*/
-        }
+    <%--<style type="text/css">--%>
+        <%--label{--%>
+            <%--/*display: inline-block;*/--%>
+            <%--/*float: left;*/--%>
+            <%--/*clear: left;*/--%>
+            <%--/*width: 1280px;*/--%>
+            <%--/*text-align: right;*/--%>
+        <%--}--%>
+        <%--input {--%>
+            <%--/*display: inline-block;*/--%>
+            <%--/*float: left;*/--%>
+        <%--}--%>
 
-    </style>
+    <%--</style>--%>
+
+        <style>
+            form label{
+                display: inline-block;
+                width: 100px;
+                font-weight: bold;
+                text-align: left;
+                align-self: flex-start;
+            }
+        </style>
 
 </head>
 <body>
 
-    <div align="center">
+    <div align="center" width="600px">
 
         <form method="post" action="hotels" >
-            <label>Region:</label>     <input type="text" name="region"> <br>
+            <label align="left" width="300px">Region:</label>     <input type="text" name="region"> <br>
             <label>Start date:</label> <input type="date" name="checkin" /> <br>
             <label>End date:</label>   <input type="date" name="checkout" /> <br>
             <label>People:</label>     <input type="number" name="capacity" /> <br>
-            <input type="checkbox" name="has_pool" />  <label>has pool</label>     <br>
-            <input type="checkbox" name="has_tenis_court" /> <label>has tenis court</label>     <br>
-            <input type="checkbox" name="has_waterslides" /> <label>has waterslides</label>     <br>
+            <label>has pool</label> <input type="checkbox" name="has_pool" />       <br>
+            <label>has tenis court</label> <input type="checkbox" name="has_tenis_court" /> <br>
+            <label>has waterslides</label> <input type="checkbox" name="has_waterslides" /> <br>
             <input type="submit" name="submit" />
         </form>
 

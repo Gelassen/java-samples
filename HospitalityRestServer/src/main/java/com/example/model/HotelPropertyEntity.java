@@ -1,6 +1,6 @@
 package com.example.model;
 
-import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+import org.codehaus.jackson.annotate.JsonBackReference;
 
 import javax.persistence.*;
 
@@ -9,7 +9,6 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "hotel_property", schema = "", catalog = "mydb")
-@JsonIgnoreProperties(value = "hotel")
 public class HotelPropertyEntity {
     private int idHotelProperty;
     private Boolean hasPool;
@@ -60,6 +59,7 @@ public class HotelPropertyEntity {
         this.hasWaterslides = hasWaterslides;
     }
 
+    @JsonBackReference("property")
     @OneToOne(mappedBy = "property")
     public HotelsEntity getHotel() {
         return hotel;

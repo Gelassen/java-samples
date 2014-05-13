@@ -1,6 +1,8 @@
 package com.example.model;
 
 
+import org.codehaus.jackson.annotate.JsonManagedReference;
+
 import javax.persistence.*;
 import java.util.List;
 

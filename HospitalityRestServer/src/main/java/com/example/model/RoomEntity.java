@@ -1,6 +1,6 @@
 package com.example.model;
 
-import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+import org.codehaus.jackson.annotate.JsonBackReference;
 
 import javax.persistence.*;
 
@@ -9,12 +9,11 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "room", schema = "", catalog = "mydb")
-@JsonIgnoreProperties(value = "hotel")
 public class RoomEntity {
     private int idRoom;
     private String roomType;
     private int peopleCapacity;
-    private Boolean  booked;
+    private Boolean booked;
     private Boolean locked;
 
     private HotelsEntity hotel;
@@ -30,6 +29,7 @@ public class RoomEntity {
         this.roomProperty = roomProperty;
     }
 
+    @JsonBackReference
     @OneToOne
     @JoinColumn(name = "id_room")
     public InventoriesEntity getInventory() {
@@ -40,6 +40,7 @@ public class RoomEntity {
         this.inventory = inventory;
     }
 
+    @JsonBackReference("hotel")
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_hotel")
     public HotelsEntity getHotel() {

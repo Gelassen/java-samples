@@ -1,48 +1,77 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html>
 <html>
 <head>
 
-    <%--<style type="text/css">--%>
-        <%--label{--%>
-            <%--/*display: inline-block;*/--%>
-            <%--/*float: left;*/--%>
-            <%--/*clear: left;*/--%>
-            <%--/*width: 1280px;*/--%>
-            <%--/*text-align: right;*/--%>
-        <%--}--%>
-        <%--input {--%>
-            <%--/*display: inline-block;*/--%>
-            <%--/*float: left;*/--%>
-        <%--}--%>
+    <style>
+        .formWrap {
+            width: 800px;
+            margin: 0 auto;
+        }
 
-    <%--</style>--%>
+        .standardForm .row label {
+            display: inline-block;
+            width: 200px;
+            margin-right: 5px;
+            font-weight: bold;
+        }
 
-        <style>
-            form label{
-                display: inline-block;
-                width: 100px;
-                font-weight: bold;
-                text-align: left;
-                align-self: flex-start;
-            }
-        </style>
+        .standardForm .row .error {
+            padding-left: 207px;
+            color: red;
+        }
+
+        .row .hide {
+            display: none;
+        }
+    </style>
 
 </head>
 <body>
 
-    <div align="center" width="600px">
+<div class="formWrap">
 
-        <form method="post" action="hotels" >
-            <label align="left" width="300px">Region:</label>     <input type="text" name="region"> <br>
-            <label>Start date:</label> <input type="date" name="checkin" /> <br>
-            <label>End date:</label>   <input type="date" name="checkout" /> <br>
-            <label>People:</label>     <input type="number" name="capacity" /> <br>
-            <label>has pool</label> <input type="checkbox" name="hasPool" />       <br>
-            <label>has tenis court</label> <input type="checkbox" name="hasTenisCourt" /> <br>
-            <label>has waterslides</label> <input type="checkbox" name="hasWaterslides" /> <br>
-            <input type="submit" name="submit" />
-        </form>
+    <form method="post" action="hotels" class="standardForm">
+        <label style="display: none">Region:</label>
+        <input style="display: none" type="text" name="region"> <br>
 
-    </div>
+        <div class="row">
+            <label for="startDate">Start date:</label><input type="date" name="checkin" id="startDate"/>
+            <c:if test="${error.isCheckinError()}">
+                <div class="error"><span>Date should be in dd/mm/yyyy format</span></div>
+            </c:if>
+        </div>
+
+        <div class="row">
+            <label for="endDate">End date:</label><input type="date" name="checkout" id="endDate"/>
+            <c:if test="${error.isCheckoutError()}">
+                <div class="error"><span>Date should be in dd/mm/yyyy format</span></div>
+            </c:if>
+        </div>
+
+        <div class="row">
+            <label for="capacity">People:</label><input type="number" name="capacity" id="capacity"/>
+            <c:if test="${error.isPeopleError()}">
+                <div class="error"><span>Amount of people should be positive</span></div>
+            </c:if>
+        </div>
+
+        <div class="row">
+            <label for="hasPool">Has pool:</label><input type="checkbox" name="hasPool" id="hasPool"/>
+        </div>
+
+        <div class="row">
+            <label for="hasTenisCourt">Has tenis court:</label><input type="checkbox" name="hasTenisCourt" id="hasTenisCourt"/>
+        </div>
+
+        <div class="row">
+            <label for="hasWaterslides">Has waterslides:</label><input type="checkbox" name="hasWaterslides" id="hasWaterslides"/>
+        </div>
+
+        <input type="submit" name="submit" />
+    </form>
+
+</div>
 
 </body>
 </html>

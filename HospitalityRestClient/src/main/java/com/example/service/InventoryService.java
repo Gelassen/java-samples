@@ -25,7 +25,7 @@ public class InventoryService extends Service{
         this.hotelId = hotelId;
         // TODO extend params
         Type type = new TypeToken<List<InventoriesEntity>>(){}.getType();
-        List<InventoriesEntity> inventories = execute(HttpMethod.GET, null, type);
+        List<InventoriesEntity> inventories = execute(HttpMethod.GET, null, type, null);
         return inventories;
     }
 

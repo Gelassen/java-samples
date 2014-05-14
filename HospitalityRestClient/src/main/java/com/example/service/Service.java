@@ -3,10 +3,7 @@ package com.example.service;
 import com.example.json.JsonCollection;
 
 import javax.ws.rs.ProcessingException;
-import javax.ws.rs.client.Client;
-import javax.ws.rs.client.ClientBuilder;
-import javax.ws.rs.client.Invocation;
-import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.client.*;
 import javax.ws.rs.core.*;
 import java.lang.reflect.Type;
 import java.util.Map;
@@ -28,8 +25,8 @@ public abstract class Service {
 
     protected abstract UriBuilder preparePath();
 
-    protected <R> R execute(String method, Map<String, Object> params, Type type) {
-        Response response = buildInvocation(method, params).invoke();
+    protected <S,R> R execute(String method, Map<String, Object> params, Type type, S objectToSend) {
+        Response response = buildInvocation(method, params, objectToSend).invoke();
         Response.Status.Family statusFamily = response.getStatusInfo().getFamily();
         try {
             switch (statusFamily) {
@@ -48,12 +45,17 @@ public abstract class Service {
         }
     }
 
-    private Invocation buildInvocation(String method, Map<String, Object> params) {
+    private <S> Invocation buildInvocation(String method, Map<String, Object> params, S objectToSend) {
         Invocation.Builder invocationBuilder = createTarget(params)
                 .request()
                 .accept(MediaType.APPLICATION_JSON_TYPE)
                 .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_TYPE);
-        return invocationBuilder.build(method);
+        if (objectToSend != null) {
+            Entity<S> entity = Entity.entity(objectToSend, MediaType.APPLICATION_JSON_TYPE);
+            return invocationBuilder.build(method, entity);
+        } else {
+            return invocationBuilder.build(method);
+        }
     }
 
     private  WebTarget createTarget (Map<String, Object> params) {

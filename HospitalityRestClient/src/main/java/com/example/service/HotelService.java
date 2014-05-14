@@ -1,6 +1,7 @@
 package com.example.service;
 
 
+import com.example.model.HotelPropertyEntity;
 import com.example.model.HotelsEntity;
 import com.google.common.reflect.TypeToken;
 
@@ -19,14 +20,18 @@ import java.util.Map;
 @EJB(beanInterface = HotelService.class, name = "HotelService")
 public class HotelService extends Service{
 
-    public List<HotelsEntity> getHotels(final String checkin, final String checkout, final int capacity,
-                                 final String region) {
+    public List<HotelsEntity> getHotels(final String checkin, final String checkout,
+                                        final int capacity, final HotelPropertyEntity hotelProperty) {
         // TODO extend params
         Map<String, Object> params = new HashMap<String, Object>(3);
         params.put("checkIn", checkin);
         params.put("checkOut", checkout);
         params.put("capacity", capacity);
-        List<HotelsEntity> list = execute(HttpMethod.GET, params, new TypeToken<List<HotelsEntity>>(){}.getType());
+        params.put("hasPool", hotelProperty.getHasPool());
+        params.put("hasTenisCourt", hotelProperty.getHasTennisCourt());
+        params.put("hasWaterslides", hotelProperty.getHasWaterslides());
+        List<HotelsEntity> list = execute(HttpMethod.GET, params,
+                new TypeToken<List<HotelsEntity>>(){}.getType(), null);
         return list;
     }
 

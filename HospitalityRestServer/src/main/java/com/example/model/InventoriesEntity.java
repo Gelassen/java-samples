@@ -37,6 +37,7 @@ public class InventoriesEntity {
         this.reservation = reservation;
     }
 
+    @JsonManagedReference
     @OneToOne(cascade = CascadeType.ALL, mappedBy = "inventory")
     public AmmenitiesEntity getAmmenities() {
         return ammenities;

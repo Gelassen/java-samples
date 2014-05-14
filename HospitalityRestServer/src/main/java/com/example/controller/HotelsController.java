@@ -1,6 +1,7 @@
 package com.example.controller;
 
 import com.example.model.HotelsEntity;
+import com.example.model.inventory.HotelProperty;
 import com.example.service.HotelService;
 
 import javax.ejb.EJB;
@@ -23,7 +24,10 @@ public class HotelsController {
     @Produces(MediaType.APPLICATION_JSON)
     public Response getHotelsList(@QueryParam("checkIn") Long checkIn,
                                   @QueryParam("checkOut") Long checkOut,
-                                  @QueryParam("capacity") Integer capacity
+                                  @QueryParam("capacity") Integer capacity,
+                                  @QueryParam("hasPool") Boolean hasPool,
+                                  @QueryParam("hasTenisCourt") Boolean hasTenisCourt,
+                                  @QueryParam("hasWaterslides") Boolean hasWaterslides
                                   /**TODO add region and hotel property*/) {
         List<HotelsEntity> list = hotelService.getAll(checkIn, checkOut, capacity, null);
         return ResponseFactory.response(Response.Status.OK, list);

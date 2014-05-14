@@ -1,5 +1,6 @@
 package com.example.actions;
 
+import com.example.model.HotelPropertyEntity;
 import com.example.model.HotelsEntity;
 import com.example.service.HotelService;
 import com.example.utils.Session;
@@ -15,6 +16,9 @@ import java.util.List;
  */
 public class HotelAction implements Action {
 
+    private final static String CHECKBOX_TRUE = "on";
+    private final static String CHECKBOX_FALSE= "off";
+
 //    @EJB
     private HotelService hotelService = new HotelService();
 
@@ -26,6 +30,11 @@ public class HotelAction implements Action {
         final String checkout = request.getParameter("checkout");
         final String capacity = request.getParameter("capacity");
         final String region = request.getParameter("region");
+
+        HotelPropertyEntity hotelProperty = new HotelPropertyEntity();
+        hotelProperty.setHasPool(CHECKBOX_TRUE.equals(request.getParameter("hasPool")));
+        hotelProperty.setHasTennisCourt(CHECKBOX_TRUE.equals(request.getParameter("hasTenisCourt")));
+        hotelProperty.setHasWaterslides(CHECKBOX_TRUE.equals(request.getParameter("hasWaterslides")));
 //        com.example.utils.Validator validator = new com.example.utils.Validator();
 //        if (!(validator.validDate(checkin) &&
 //                validator.validDate(checkout) &&
@@ -40,7 +49,7 @@ public class HotelAction implements Action {
         session.setPeopleCapacity(capacity);
         session.setDays();
 
-        List<HotelsEntity> hotels = hotelService.getHotels(checkin, checkout, Integer.valueOf(capacity), region);
+        List<HotelsEntity> hotels = hotelService.getHotels(checkin, checkout, Integer.valueOf(capacity), hotelProperty);
         request.setAttribute("hotels", hotels);
         request.getRequestDispatcher("hotels.jsp").forward(request, response);
     }

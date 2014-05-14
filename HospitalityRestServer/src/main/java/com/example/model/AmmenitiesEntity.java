@@ -14,6 +14,7 @@ public class AmmenitiesEntity {
     private Boolean hasBreakfast;
     private InventoriesEntity inventory;
 
+    @JsonBackReference
     @OneToOne
     @JoinColumn(name = "id_ammenities")
     public InventoriesEntity getInventory() {

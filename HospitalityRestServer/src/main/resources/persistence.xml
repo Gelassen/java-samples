@@ -11,6 +11,7 @@
         <class>com.example.model.ReservationEntity</class>
         <class>com.example.model.RoomEntity</class>
         <class>com.example.model.RoomPropertyEntity</class>
+        <class>com.example.model.Client</class>
         <exclude-unlisted-classes>false</exclude-unlisted-classes>
         <properties>
             <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/mydb"/>

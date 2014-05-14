@@ -1,11 +1,14 @@
 package com.example.service;
 
 import com.example.json.JsonCollection;
+import com.example.utils.Constants;
+import org.apache.commons.codec.binary.Base64;
 
 import javax.ws.rs.ProcessingException;
 import javax.ws.rs.client.*;
 import javax.ws.rs.core.*;
 import java.lang.reflect.Type;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -50,6 +53,9 @@ public abstract class Service {
                 .request()
                 .accept(MediaType.APPLICATION_JSON_TYPE)
                 .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_TYPE);
+        for (Map.Entry<String, String> header : getAuthHeaders().entrySet()) {
+            invocationBuilder.header(header.getKey(), header.getValue());
+        }
         if (objectToSend != null) {
             Entity<S> entity = Entity.entity(objectToSend, MediaType.APPLICATION_JSON_TYPE);
             return invocationBuilder.build(method, entity);
@@ -66,5 +72,12 @@ public abstract class Service {
             }
         }
         return target;
+    }
+
+    private Map<String, String> getAuthHeaders() {
+        final String encodedAuth = Base64.encodeBase64String((Constants.NAME + ":" + Constants.PASSWORD).getBytes());
+        HashMap<String, String> map = new HashMap<String, String>();
+        map.put(HttpHeaders.AUTHORIZATION, encodedAuth);
+        return map;
     }
 }

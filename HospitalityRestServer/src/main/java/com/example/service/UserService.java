@@ -16,9 +16,9 @@ public class UserService {
     @EJB
     private UserDAO userDAO;
 
-    public boolean authenticate(final String token) {
-        Client client = userDAO.findClientByToken(token);
-        return client != null;
+    public boolean authenticate(final String name, final String password) {
+        Client client = userDAO.findClientByLogin(name);
+        return !client.empty() && client.checkPassword(password);
     }
 
 }

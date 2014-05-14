@@ -55,6 +55,11 @@
             <!--<version>2.2.4</version>-->
             <!--<scope>provided</scope>-->
         <!--</dependency>-->
+        <dependency>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
+            <version>1.8</version>
+        </dependency>
     </dependencies>
 
     <build>

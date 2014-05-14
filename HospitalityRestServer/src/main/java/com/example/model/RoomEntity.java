@@ -124,7 +124,7 @@ public class RoomEntity {
         result = 31 * result + (roomType != null ? roomType.hashCode() : 0);
         result = 31 * result + peopleCapacity;
         result = 31 * result + (booked ? 1 : 0);
-        result = 31 * result + (locked ? 1 : 0);
+        result = 31 * result + (locked ? 2 : 0);
         return result;
     }
 

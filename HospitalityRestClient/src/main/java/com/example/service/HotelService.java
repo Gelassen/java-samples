@@ -3,6 +3,7 @@ package com.example.service;
 
 import com.example.model.HotelPropertyEntity;
 import com.example.model.HotelsEntity;
+import com.example.utils.DateUtils;
 import com.google.common.reflect.TypeToken;
 
 import javax.ejb.EJB;
@@ -23,9 +24,10 @@ public class HotelService extends Service{
     public List<HotelsEntity> getHotels(final String checkin, final String checkout,
                                         final int capacity, final HotelPropertyEntity hotelProperty) {
         // TODO extend params
+        DateUtils dateUtils = new DateUtils();
         Map<String, Object> params = new HashMap<String, Object>(3);
-        params.put("checkIn", checkin);
-        params.put("checkOut", checkout);
+        params.put("checkIn", dateUtils.dateToMillis(checkin));
+        params.put("checkOut", dateUtils.dateToMillis(checkout));
         params.put("capacity", capacity);
         params.put("hasPool", hotelProperty.getHasPool());
         params.put("hasTenisCourt", hotelProperty.getHasTennisCourt());

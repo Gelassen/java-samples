@@ -10,7 +10,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "room_property", schema = "", catalog = "mydb")
 @JsonIgnoreProperties(value = "room")
-public class RoomPropertyEntity {
+public class RoomPropertyEntity implements HospitalityEntity {
     private int idRoomProperty;
     private Boolean hasTv;
     private Boolean hasBalcony;

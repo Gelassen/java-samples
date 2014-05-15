@@ -5,14 +5,11 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
 
-import javax.ws.rs.Consumes;
-import javax.ws.rs.Produces;
 import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.MultivaluedMap;
 import javax.ws.rs.ext.MessageBodyReader;
 import javax.ws.rs.ext.MessageBodyWriter;
-import javax.ws.rs.ext.Provider;
 import java.io.*;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Type;
@@ -24,12 +21,12 @@ import java.nio.charset.Charset;
 //@Provider
 //@Produces(MediaType.APPLICATION_JSON)
 //@Consumes(MediaType.APPLICATION_JSON)
-public class JsonProvider<T> implements MessageBodyReader<T>, MessageBodyWriter<T> {
+public abstract class JsonProvider<T> implements MessageBodyReader<T>, MessageBodyWriter<T> {
 
     @Override
     public boolean isReadable(Class<?> type, Type genericType, Annotation[] annotations, MediaType mediaType) {
-        return MediaType.APPLICATION_JSON.equals(mediaType.getType()) &&
-                MediaType.APPLICATION_JSON.equals(mediaType.getSubtype());
+        return MediaType.APPLICATION_JSON_TYPE.equals(mediaType.getType()) &&
+                MediaType.APPLICATION_JSON_TYPE.equals(mediaType.getSubtype());
     }
 
     @Override
@@ -41,8 +38,8 @@ public class JsonProvider<T> implements MessageBodyReader<T>, MessageBodyWriter<
 
     @Override
     public boolean isWriteable(Class<?> type, Type genericType, Annotation[] annotations, MediaType mediaType) {
-        return MediaType.APPLICATION_JSON.equals(mediaType.getType()) &&
-                MediaType.APPLICATION_JSON.equals(mediaType.getSubtype());
+        return MediaType.APPLICATION_JSON_TYPE.equals(mediaType.getType()) &&
+                MediaType.APPLICATION_JSON_TYPE.equals(mediaType.getSubtype());
     }
 
     @Override

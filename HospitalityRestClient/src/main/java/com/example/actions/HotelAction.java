@@ -4,8 +4,8 @@ import com.example.model.HotelPropertyEntity;
 import com.example.model.HotelsEntity;
 import com.example.service.HotelService;
 import com.example.utils.Session;
+import com.example.utils.validator.OrderError;
 import com.example.utils.validator.Validator;
-import com.example.utils.validator.Error;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -39,7 +39,7 @@ public class HotelAction implements Action {
 
         // validate fields
         Validator validator = new Validator();
-        Error error = new Error();
+        OrderError error = new OrderError();
         error.setCheckinError(!validator.validDate(checkin));
         error.setCheckoutError(!validator.validDate(checkout));
         error.setPeopleError(!validator.validNumber(capacity));

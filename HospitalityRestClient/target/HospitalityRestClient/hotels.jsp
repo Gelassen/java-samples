@@ -10,14 +10,22 @@
                 <div>
                     <tr>
                         <td>
-                            <a href="inventory?hotel_id=<c:out value="${hotel.idHotel}" />" >
-                                <img  src="http://q-ec.bstatic.com/images/hotel/square128/216/21646823.jpg" alt="Adagio Paris Tour Eiffel, Париж" height="128" width="128">
-                            </a>
+                            <div class="row">
+                                <a href="inventory?hotel_id=<c:out value="${hotel.idHotel}"/>&hotel=<c:out value="${hotel.name}" />&region=<c:out value="${hotel.region}" />&description=<c:out value="${hotel.description}" />">
+                                    <img  src="http://q-ec.bstatic.com/images/hotel/square128/216/21646823.jpg" alt="Adagio Paris Tour Eiffel, Париж" height="128" width="128">
+                                </a>
+                            </div>
                         </td>
                         <td>
-                            <p><c:out value="${hotel.name}" /></p>
-                            <p><c:out value="${hotel.region}" /></p>
-                            <p><c:out value="${hotel.description}" /></p>
+                            <div class="row">
+                                <c:out value="${hotel.name}" />
+                            </div>
+                            <div class="row">
+                                <c:out value="${hotel.region}" />
+                            </div>
+                            <div class="row">
+                                <c:out value="${hotel.description}" />
+                            </div>
                         </td>
                     </tr>
                 </div>

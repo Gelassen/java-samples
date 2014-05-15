@@ -9,7 +9,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "room", schema = "", catalog = "mydb")
-public class RoomEntity {
+public class RoomEntity implements HospitalityEntity {
     private int idRoom;
     private String roomType;
     private int peopleCapacity;

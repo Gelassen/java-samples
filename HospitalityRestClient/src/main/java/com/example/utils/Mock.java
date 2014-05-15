@@ -58,7 +58,7 @@ public class Mock {
         oneTypeOfInventoryRoomProperty.setUglyViewFromWindow(true);
         oneTypeOfInventoryRoomProperty.setIdRoomProperty(0);
 
-        oneTypeOfInventoryRoom.setRoom(oneTypeOfInventoryRoomProperty);
+//        oneTypeOfInventoryRoom.setRoom(oneTypeOfInventoryRoomProperty);
 
         HotelsEntity hotel = new HotelsEntity();
         hotel.setIdHotel(99);
@@ -95,7 +95,7 @@ public class Mock {
         anotherTypeOfInventoryRoomProperty.setUglyViewFromWindow(true);
         anotherTypeOfInventoryRoomProperty.setIdRoomProperty(1);
 
-        anotherTypeOfInventoryRoom.setRoom(anotherTypeOfInventoryRoomProperty);
+//        anotherTypeOfInventoryRoom.setRoom(anotherTypeOfInventoryRoomProperty);
 
         // set room
         anotherTypeOfInventory.setRoom(anotherTypeOfInventoryRoom);

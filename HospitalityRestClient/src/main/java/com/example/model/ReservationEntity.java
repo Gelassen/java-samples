@@ -1,13 +1,15 @@
 package com.example.model;
 
+import org.codehaus.jackson.annotate.JsonBackReference;
+
 import javax.persistence.*;
 
 /**
  * Created by dkazakov on 25.04.2014.
  */
 @Entity
-@Table(name = "reservation", schema = "", catalog = "mydb")
-public class ReservationEntity {
+@Table(name = "reservation", schema = "", catalog = "mydb", uniqueConstraints = { @UniqueConstraint(columnNames = "id_inventory") })
+public class ReservationEntity implements HospitalityEntity {
     private int idInventory;
     private Long checkIn;
     private Long checkOut;
@@ -16,6 +18,7 @@ public class ReservationEntity {
 
     private InventoriesEntity inventory;
 
+    @JsonBackReference
     @OneToOne(mappedBy = "reservation")
     public InventoriesEntity getInventory() {
         return inventory;

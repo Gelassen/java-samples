@@ -26,8 +26,8 @@ public class HotelService extends Service{
         // TODO extend params
         DateUtils dateUtils = new DateUtils();
         Map<String, Object> params = new HashMap<String, Object>(3);
-        params.put("checkIn", dateUtils.dateToMillis(checkin));
-        params.put("checkOut", dateUtils.dateToMillis(checkout));
+        params.put("checkIn", dateUtils.dateToSeconds(checkin));
+        params.put("checkOut", dateUtils.dateToSeconds(checkout));
         params.put("capacity", capacity);
         params.put("hasPool", hotelProperty.getHasPool());
         params.put("hasTenisCourt", hotelProperty.getHasTennisCourt());

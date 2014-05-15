@@ -1,6 +1,6 @@
 package com.example.model;
 
-import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+import org.codehaus.jackson.annotate.JsonBackReference;
 
 import javax.persistence.*;
 
@@ -8,9 +8,9 @@ import javax.persistence.*;
  * Created by dkazakov on 25.04.2014.
  */
 @Entity
-@Table(name = "reservation", schema = "", catalog = "mydb")
-@JsonIgnoreProperties(value = "inventory")
-public class ReservationEntity {
+@Table(name = "reservation", schema = "", catalog = "mydb",
+        uniqueConstraints = { @UniqueConstraint(columnNames = "id_inventory") } )
+public class ReservationEntity implements HospitalityEntity {
     private int idInventory;
     private Long checkIn;
     private Long checkOut;
@@ -19,6 +19,7 @@ public class ReservationEntity {
 
     private InventoriesEntity inventory;
 
+    @JsonBackReference
     @OneToOne(mappedBy = "reservation")
     public InventoriesEntity getInventory() {
         return inventory;
@@ -29,6 +30,7 @@ public class ReservationEntity {
     }
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_inventory")
     public int getIdInventory() {
         return idInventory;

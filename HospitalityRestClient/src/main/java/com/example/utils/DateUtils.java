@@ -19,7 +19,7 @@ public class DateUtils {
     private static final int DEFAULT_SECONDS = 0;
 
 
-    public long dateToMillis(String date) {
+    public long dateToSeconds(String date) {
         String[] tokens = date.split("/");
         Calendar calendar = Calendar.getInstance();
         calendar.set(
@@ -29,7 +29,7 @@ public class DateUtils {
                 DEFAULT_HOURS,
                 DEFAULT_MINUTES,
                 DEFAULT_SECONDS);
-        return 0;
+        return calendar.getTimeInMillis() / 1000;
     }
 
     public long daysAmount(long checkin, long checkout) {

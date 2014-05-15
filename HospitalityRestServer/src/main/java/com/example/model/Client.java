@@ -15,7 +15,7 @@ import java.security.NoSuchAlgorithmException;
 @Table(name = "clients", schema = "", catalog = "mydb")
 @NamedQuery(name = "findUserByLogin",
         query = "select c from Client c where c.login = :login ")
-public class Client {
+public class Client implements HospitalityEntity {
 
     private int id;
     private String login;

@@ -17,4 +17,14 @@ public class Validator {
         return pattern.matcher(number).matches();
     }
 
+    public boolean validateName(String name) {
+        Pattern pattern = Pattern.compile("^[\\p{L} .'-]+$");
+        return name != null && name.length() > 0 && pattern.matcher(name).matches();
+    }
+
+    public boolean validatePhone(String phone) {
+        Pattern pattern = Pattern.compile("[0-9 -]+");
+        return phone != null && phone.length() > 0 && pattern.matcher(phone).matches();
+    }
+
 }

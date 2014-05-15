@@ -17,7 +17,7 @@ import java.math.BigDecimal;
                         "left join fetch i.ammenities " +
                         "where i.room.hotel.idHotel = :idHotel")
 })
-public class InventoriesEntity {
+public class InventoriesEntity implements HospitalityEntity {
     private int idInventory;
     private int idRoom;
     private int idAmmenities;
@@ -27,6 +27,7 @@ public class InventoriesEntity {
     private AmmenitiesEntity ammenities;
     private ReservationEntity reservation;
 
+    @JsonManagedReference
     @OneToOne
     @JoinColumn (name = "id_inventory")
     public ReservationEntity getReservation() {

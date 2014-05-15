@@ -27,7 +27,7 @@ public class HotelsController {
                                   @QueryParam("hasPool") Boolean hasPool,
                                   @QueryParam("hasTenisCourt") Boolean hasTenisCourt,
                                   @QueryParam("hasWaterslides") Boolean hasWaterslides
-                                  /**TODO add region and hotel property*/) {
+                                  /*TODO add region*/) {
         List<HotelsEntity> list = hotelService.getAll(checkIn, checkOut, capacity, null);
         return ResponseFactory.response(Response.Status.OK, list);
     }

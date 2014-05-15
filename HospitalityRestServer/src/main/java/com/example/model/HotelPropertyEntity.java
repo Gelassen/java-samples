@@ -9,7 +9,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "hotel_property", schema = "", catalog = "mydb")
-public class HotelPropertyEntity {
+public class HotelPropertyEntity implements HospitalityEntity {
     private int idHotelProperty;
     private Boolean hasPool;
     private Boolean hasTennisCourt;

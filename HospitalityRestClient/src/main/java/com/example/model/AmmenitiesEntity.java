@@ -1,5 +1,7 @@
 package com.example.model;
 
+import org.codehaus.jackson.annotate.JsonBackReference;
+
 import javax.persistence.*;
 
 /**
@@ -7,11 +9,12 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "ammenities", schema = "", catalog = "mydb")
-public class AmmenitiesEntity {
+public class AmmenitiesEntity implements HospitalityEntity {
     private int idAmmenities;
     private Boolean hasBreakfast;
     private InventoriesEntity inventory;
 
+    @JsonBackReference
     @OneToOne
     @JoinColumn(name = "id_ammenities")
     public InventoriesEntity getInventory() {

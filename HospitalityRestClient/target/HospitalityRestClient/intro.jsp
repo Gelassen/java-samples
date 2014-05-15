@@ -2,31 +2,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-
-    <style>
-        .formWrap {
-            width: 800px;
-            margin: 0 auto;
-        }
-
-        .standardForm .row label {
-            display: inline-block;
-            width: 200px;
-            margin-right: 5px;
-            font-weight: bold;
-        }
-
-        .standardForm .row .error {
-            padding-left: 207px;
-            color: red;
-        }
-
-        .row .hide {
-            display: none;
-        }
-    </style>
-
+    <link type="text/css" rel="stylesheet" href="<c:url value="css/intro.css" />" />
 </head>
+
 <body>
 
 <div class="formWrap">

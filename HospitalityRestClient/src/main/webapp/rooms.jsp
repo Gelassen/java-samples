@@ -1,13 +1,21 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html>
 <html>
+<head>
+    <link type="text/css" rel="stylesheet" href="<c:url value="css/rooms.css" />" />
+</head>
 <body>
 
 <div align="center">
 
     <div id="hotel_block">
-        <p><c:out value="${inventories[0].room.getHotel().name}" /></p>
-        <p><c:out value="${inventories[0].room.getHotel().region}" /></p>
-        <p><c:out value="${inventories[0].room.getHotel().description}" /></p>
+        <div class="row">
+            <c:out value="${hotel}" />
+            <c:out value="${region}" />
+        </div>
+        <div class="row">
+            <c:out value="${description}" />
+        </div>
     </div>
 
     <table>
@@ -19,22 +27,36 @@
                         <img  src="https://q.bstatic.com/images/hotel/square90/286/28647237.jpg" alt="Adagio Paris Tour Eiffel, Париж" height="128" width="128">
                     </td>
                     <td>
-                        <p><label>Room type: </label>${inventory.room.roomType}</p>
-                        <p><label>People: </label>${inventory.room.peopleCapacity}</p>
-                        <p>
+                        <div class="row">
+                            <label>Room type: </label>
+                            <span>${inventory.room.roomType}</span>
+                        </div>
+
+                        <div class="row">
+                            <label>People: </label>
+                            <span>${inventory.room.peopleCapacity}</span>
+                        </div>
+
+                        <div class="row">
                             <label>Room has: </label>
-                            <c:if test="${inventory.room.getRoom().hasTv}"> TV </c:if>
-                            <c:if test="${inventory.room.getRoom().hasBalcony}"> Balcony </c:if>
-                            <c:if test="${inventory.room.getRoom().hasConditioner}"> Conditioner </c:if>
-                            <c:if test="${inventory.room.getRoom().niceViewOnSea}"> Window on the sea </c:if>
-                            <c:if test="${inventory.room.getRoom().niceViewOnPool}"> Window on the pool </c:if>
-                        </p>
-                        <p><label>Service: </label><c:if test="${inventory.ammenities.hasBreakfast}}"> breakfast </c:if></p>
-                        <label>Price: </label>
-                        <div id="price">
+                            <c:if test="${inventory.room.getRoomProperty().hasTv}"> TV </c:if>
+                            <c:if test="${inventory.room.getRoomProperty().hasBalcony}"> Balcony </c:if>
+                            <c:if test="${inventory.room.getRoomProperty().hasConditioner}"> Conditioner </c:if>
+                            <c:if test="${inventory.room.getRoomProperty().niceViewOnSea}"> Window on the sea </c:if>
+                            <c:if test="${inventory.room.getRoomProperty().niceViewOnPool}"> Window on the pool </c:if>
+                        </div>
+
+                        <div class="row">
+                            <label>Service: </label>
+                            <c:if test="${inventory.ammenities.hasBreakfast}}"> breakfast </c:if>
+                        </div>
+
+                        <div class="row">
                             <%--price for period ot time per room--%>
+                            <label>Price: </label>
                             <c:out value="${inventory.price * days}" /> for <c:out value="${days}" /> days
                         </div>
+
                         <input type="submit" name="order" >
                     </td>
                 </tr>

@@ -1,9 +1,12 @@
 package com.example.controller;
 
+import com.example.model.ReservationEntity;
+import com.example.service.BookingService;
+
+import javax.ejb.EJB;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
-import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
@@ -13,18 +16,17 @@ import javax.ws.rs.core.Response;
 @Path("/book")
 public class BookController {
 
+    @EJB
+    private BookingService bookingService;
 
     @POST
-    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    public Response bookRoom(@QueryParam("hotelId") String hotelId,
-                             @QueryParam("inventoryId") String inventoryId,
-                             @QueryParam("startDate") String startDate,
-                             @QueryParam("endDate") String endDate) {
-
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response bookRoom(ReservationEntity reservationEntity) {
         boolean notCreated = true;
-        if (notCreated) {
+        bookingService.makeOrder(reservationEntity);
+/*        if (notCreated) {
             return ResponseFactory.response(Response.Status.CONFLICT);
-        }
+        }*/
 
         return ResponseFactory.response(Response.Status.NO_CONTENT);
     }

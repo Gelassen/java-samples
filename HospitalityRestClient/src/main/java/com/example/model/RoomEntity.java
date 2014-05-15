@@ -1,5 +1,7 @@
 package com.example.model;
 
+import org.codehaus.jackson.annotate.JsonBackReference;
+
 import javax.persistence.*;
 
 /**
@@ -7,11 +9,11 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "room", schema = "", catalog = "mydb")
-public class RoomEntity {
+public class RoomEntity implements HospitalityEntity {
     private int idRoom;
     private String roomType;
     private int peopleCapacity;
-    private Boolean  booked;
+    private Boolean booked;
     private Boolean locked;
 
     private HotelsEntity hotel;
@@ -19,14 +21,15 @@ public class RoomEntity {
     private RoomPropertyEntity roomProperty;
 
     @OneToOne(mappedBy = "room")
-    public RoomPropertyEntity getRoom() {
+    public RoomPropertyEntity getRoomProperty() {
         return roomProperty;
     }
 
-    public void setRoom(RoomPropertyEntity roomProperty) {
+    public void setRoomProperty(RoomPropertyEntity roomProperty) {
         this.roomProperty = roomProperty;
     }
 
+    @JsonBackReference
     @OneToOne
     @JoinColumn(name = "id_room")
     public InventoriesEntity getInventory() {
@@ -37,7 +40,8 @@ public class RoomEntity {
         this.inventory = inventory;
     }
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @JsonBackReference("hotel")
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_hotel")
     public HotelsEntity getHotel() {
         return hotel;
@@ -120,7 +124,7 @@ public class RoomEntity {
         result = 31 * result + (roomType != null ? roomType.hashCode() : 0);
         result = 31 * result + peopleCapacity;
         result = 31 * result + (booked ? 1 : 0);
-        result = 31 * result + (locked ? 1 : 0);
+        result = 31 * result + (locked ? 2 : 0);
         return result;
     }
 

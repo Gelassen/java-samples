@@ -1,24 +1,33 @@
 package com.example.model;
 
+import org.codehaus.jackson.annotate.JsonManagedReference;
+
 import javax.persistence.*;
 import java.math.BigDecimal;
-import java.math.RoundingMode;
 
 /**
  * Created by dkazakov on 25.04.2014.
  */
 @Entity
 @Table(name = "inventories", schema = "", catalog = "mydb")
-public class InventoriesEntity {
+@NamedQueries({
+        @NamedQuery(name = "InventoriesEntity.getInventoryByHotel",
+                query = "select i from InventoriesEntity i " +
+                        "left join fetch i.room " +
+                        "left join fetch i.ammenities " +
+                        "where i.room.hotel.idHotel = :idHotel")
+})
+public class InventoriesEntity implements HospitalityEntity {
     private int idInventory;
-    private BigDecimal price;
     private int idRoom;
     private int idAmmenities;
+    private BigDecimal price;
 
     private RoomEntity room;
     private AmmenitiesEntity ammenities;
     private ReservationEntity reservation;
 
+    @JsonManagedReference
     @OneToOne
     @JoinColumn(name = "id_inventory")
     public ReservationEntity getReservation() {
@@ -29,6 +38,7 @@ public class InventoriesEntity {
         this.reservation = reservation;
     }
 
+    @JsonManagedReference
     @OneToOne(cascade = CascadeType.ALL, mappedBy = "inventory")
     public AmmenitiesEntity getAmmenities() {
         return ammenities;
@@ -38,6 +48,7 @@ public class InventoriesEntity {
         this.ammenities = ammenities;
     }
 
+    @JsonManagedReference
     @OneToOne(mappedBy = "inventory")
     public RoomEntity getRoom() {
         return room;
@@ -58,9 +69,9 @@ public class InventoriesEntity {
     }
 
     @Basic
-    @Column(name = "price", nullable = false, precision = 9,scale = 2)
+    @Column(name = "price", nullable = false)
     public BigDecimal getPrice() {
-        return price.setScale(2, RoundingMode.CEILING);
+        return price;
     }
 
     public void setPrice(BigDecimal price) {
@@ -86,6 +97,7 @@ public class InventoriesEntity {
     public void setIdAmmenities(int idAmmenities) {
         this.idAmmenities = idAmmenities;
     }
+
 
     @Override
     public boolean equals(Object o) {

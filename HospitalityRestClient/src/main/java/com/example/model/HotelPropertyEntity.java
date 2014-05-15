@@ -1,5 +1,7 @@
 package com.example.model;
 
+import org.codehaus.jackson.annotate.JsonBackReference;
+
 import javax.persistence.*;
 
 /**
@@ -7,7 +9,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "hotel_property", schema = "", catalog = "mydb")
-public class HotelPropertyEntity {
+public class HotelPropertyEntity implements HospitalityEntity {
     private int idHotelProperty;
     private Boolean hasPool;
     private Boolean hasTennisCourt;
@@ -57,8 +59,8 @@ public class HotelPropertyEntity {
         this.hasWaterslides = hasWaterslides;
     }
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_hotel_property")
+    @JsonBackReference("property")
+    @OneToOne(mappedBy = "property")
     public HotelsEntity getHotel() {
         return hotel;
     }
@@ -85,9 +87,9 @@ public class HotelPropertyEntity {
     @Override
     public int hashCode() {
         int result = idHotelProperty;
-        result = 31 * result + (hasPool ? 1 : 0);
-        result = 31 * result + (hasTennisCourt ? 2 : 0);
-        result = 31 * result + (hasWaterslides ? 3 : 0);
+        result = 31 * result + (hasPool ? 1 : -1);
+        result = 31 * result + (hasTennisCourt ? 2 : -2);
+        result = 31 * result + (hasWaterslides ? 3 : -3);
         return result;
     }
 }

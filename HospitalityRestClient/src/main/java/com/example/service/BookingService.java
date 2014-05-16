@@ -27,7 +27,7 @@ public class BookingService extends Service{
         reservation.setCheckOut(checkOut);
         reservation.setGuestName(name);
         reservation.setGuestPhone(phone);*/
-        execute(HttpMethod.POST, null, ReservationEntity.class/*new TypeToken<ReservationEntity>(){}.getType()*/, reservation);
+        execute(HttpMethod.POST, null, ReservationEntity.class, reservation);
         return true;
     }
 

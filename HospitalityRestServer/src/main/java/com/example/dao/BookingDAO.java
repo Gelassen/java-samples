@@ -21,10 +21,10 @@ public class BookingDAO {
 
     @TransactionAttribute(TransactionAttributeType.SUPPORTS)
     public void makeOrder(ReservationEntity reservationEntity) {
-        em.getTransaction().begin();
+//        em.getTransaction().begin();
         em.persist(reservationEntity);
         //TODO update room table
-        em.getTransaction().commit();
+//        em.getTransaction().commit();
     }
 
 }

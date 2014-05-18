@@ -69,6 +69,9 @@ public class JsonRawProvider implements MessageBodyWriter<JsonObject>, MessageBo
     }
 
     private Gson createGson() {
-        return new GsonBuilder().setPrettyPrinting().create();
+        return new GsonBuilder()
+                .setPrettyPrinting()
+                .registerTypeAdapterFactory(new NullableWrapperAdapterFactory())
+                .create();
     }
 }

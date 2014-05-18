@@ -1,7 +1,10 @@
 package com.example.controller;
 
+import com.example.json.GsonFactory;
 import com.example.model.ReservationEntity;
 import com.example.service.BookingService;
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 
 import javax.ejb.EJB;
 import javax.ws.rs.Consumes;
@@ -21,9 +24,12 @@ public class BookController {
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response bookRoom(ReservationEntity reservationEntity) {
+    public Response bookRoom(JsonObject reservationEntity) {
         boolean notCreated = true;
-        bookingService.makeOrder(reservationEntity);
+        Gson mainGson = GsonFactory.createGson();
+        ReservationEntity reservationEntitys = mainGson.fromJson(reservationEntity, ReservationEntity.class);
+
+//        bookingService.makeOrder(reservationEntity);
 /*        if (notCreated) {
             return ResponseFactory.response(Response.Status.CONFLICT);
         }*/

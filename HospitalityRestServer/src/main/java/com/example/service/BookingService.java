@@ -23,6 +23,7 @@ public class BookingService {
     @TransactionAttribute(TransactionAttributeType.SUPPORTS)
     public void makeOrder(@NotNull ReservationEntity reservationEntity) {
         bookingDAO.makeOrder(reservationEntity);
+        String str = new String("asd");
     }
 
 

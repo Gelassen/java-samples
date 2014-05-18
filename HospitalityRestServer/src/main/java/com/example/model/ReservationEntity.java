@@ -8,14 +8,13 @@ import javax.persistence.*;
  * Created by dkazakov on 25.04.2014.
  */
 @Entity
-@Table(name = "reservation", schema = "", catalog = "mydb",
-        uniqueConstraints = { @UniqueConstraint(columnNames = "id_inventory") } )
+@Table(name = "reservation", schema = "", catalog = "mydb", uniqueConstraints = { @UniqueConstraint(columnNames = "id_inventory") })
 public class ReservationEntity implements HospitalityEntity {
-    private int idInventory;
-    private Long checkIn;
-    private Long checkOut;
-    private String guestName;
-    private String guestPhone;
+    private NullableWrapper<Integer> idInventory;
+    private NullableWrapper<Long> checkIn;
+    private NullableWrapper<Long> checkOut;
+    private NullableWrapper<String> guestName;
+    private NullableWrapper<String> guestPhone;
 
     private InventoriesEntity inventory;
 
@@ -30,54 +29,53 @@ public class ReservationEntity implements HospitalityEntity {
     }
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_inventory")
     public int getIdInventory() {
-        return idInventory;
+        return idInventory.getValue();
     }
 
     public void setIdInventory(int idInventory) {
-        this.idInventory = idInventory;
+        this.idInventory = new NullableWrapper<Integer>(idInventory);
     }
 
     @Basic
     @Column(name = "check_in", columnDefinition="bigint(20)")
     public Long getCheckIn() {
-        return checkIn;
+        return checkIn.getValue();
     }
 
     public void setCheckIn(Long checkIn) {
-        this.checkIn = checkIn;
+        this.checkIn = new NullableWrapper<Long>(checkIn);
     }
 
     @Basic
     @Column(name = "check_out", columnDefinition="bigint(20)")
     public Long getCheckOut() {
-        return checkOut;
+        return checkOut.getValue();
     }
 
     public void setCheckOut(Long checkOut) {
-        this.checkOut = checkOut;
+        this.checkOut = new NullableWrapper<Long>(checkOut);
     }
 
     @Basic
     @Column(name = "guest_name", columnDefinition="char(100)")
     public String getGuestName() {
-        return guestName;
+        return guestName.getValue();
     }
 
     public void setGuestName(String guestName) {
-        this.guestName = guestName;
+        this.guestName = new NullableWrapper<String>(guestName);
     }
 
     @Basic
     @Column(name = "guest_phone", columnDefinition="char(100)")
     public String getGuestPhone() {
-        return guestPhone;
+        return guestPhone.getValue();
     }
 
     public void setGuestPhone(String guestPhone) {
-        this.guestPhone = guestPhone;
+        this.guestPhone = new NullableWrapper<String>(guestPhone);
     }
 
     @Override
@@ -88,7 +86,7 @@ public class ReservationEntity implements HospitalityEntity {
         ReservationEntity that = (ReservationEntity) o;
 
         if (idInventory != that.idInventory) return false;
-        if (checkIn != null ? !checkIn.equals(that.checkIn) : that.checkIn != null) return false;
+//        if (checkIn != null ? !checkIn.equals(that.checkIn) : that.checkIn != null) return false;
         if (checkOut != null ? !checkOut.equals(that.checkOut) : that.checkOut != null) return false;
         if (guestName != null ? !guestName.equals(that.guestName) : that.guestName != null) return false;
         if (guestPhone != null ? !guestPhone.equals(that.guestPhone) : that.guestPhone != null) return false;
@@ -98,8 +96,8 @@ public class ReservationEntity implements HospitalityEntity {
 
     @Override
     public int hashCode() {
-        int result = idInventory;
-        result = 31 * result + (checkIn != null ? checkIn.hashCode() : 0);
+        int result = idInventory.getValue();
+//        result = 31 * result + (checkIn != null ? checkIn.hashCode() : 0);
         result = 31 * result + (checkOut != null ? checkOut.hashCode() : 0);
         result = 31 * result + (guestName != null ? guestName.hashCode() : 0);
         result = 31 * result + (guestPhone != null ? guestPhone.hashCode() : 0);

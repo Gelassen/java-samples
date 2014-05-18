@@ -63,6 +63,9 @@ public abstract class JsonProvider<T> implements MessageBodyReader<T>, MessageBo
     }
 
     private Gson createGson() {
-        return new GsonBuilder().setPrettyPrinting().create();
+        return new GsonBuilder()
+                .setPrettyPrinting()
+                .registerTypeAdapterFactory(new NullableWrapperAdapterFactory())
+                .create();
     }
 }

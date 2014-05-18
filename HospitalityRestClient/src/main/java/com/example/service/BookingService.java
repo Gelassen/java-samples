@@ -27,6 +27,7 @@ public class BookingService extends Service{
         reservation.setCheckOut(checkOut);
         reservation.setGuestName(name);
         reservation.setGuestPhone(phone);*/
+        reservation.setIdInventory(6);
         execute(HttpMethod.POST, null, ReservationEntity.class, reservation);
         return true;
     }

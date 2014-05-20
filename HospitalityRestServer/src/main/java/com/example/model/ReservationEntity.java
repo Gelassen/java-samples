@@ -8,7 +8,8 @@ import javax.persistence.*;
  * Created by dkazakov on 25.04.2014.
  */
 @Entity
-@Table(name = "reservation", schema = "", catalog = "mydb", uniqueConstraints = { @UniqueConstraint(columnNames = "id_inventory") })
+@Table(name = "reservation", schema = "", catalog = "mydb",
+        uniqueConstraints = { @UniqueConstraint(columnNames = "id_inventory") })
 public class ReservationEntity implements HospitalityEntity {
     private NullableWrapper<Integer> idInventory;
     private NullableWrapper<Long> checkIn;

@@ -2,6 +2,7 @@ package com.example.controller;
 
 import com.example.json.GsonFactory;
 import com.example.model.ReservationEntity;
+import com.example.model.reservation.Reservation;
 import com.example.service.BookingService;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
@@ -29,7 +30,14 @@ public class BookController {
         Gson mainGson = GsonFactory.createGson();
         ReservationEntity reservationEntitys = mainGson.fromJson(reservationEntity, ReservationEntity.class);
 
-//        bookingService.makeOrder(reservationEntity);
+        // TODO replace me with real data
+        ReservationEntity entity = new ReservationEntity();
+        entity.setIdInventory(0);
+        entity.setCheckIn(1145563200l);
+        entity.setCheckOut(1177099200l);
+        entity.setGuestName("Dmitry");
+        entity.setGuestPhone("258212");
+        bookingService.makeOrder(entity/*reservationEntity*/);
 /*        if (notCreated) {
             return ResponseFactory.response(Response.Status.CONFLICT);
         }*/

@@ -1,17 +1,14 @@
 package com.example.service;
 
-import com.example.Constants;
 import com.example.dao.BookingDAO;
+import com.example.dao.InventoryDAO;
+import com.example.model.InventoriesEntity;
 import com.example.model.ReservationEntity;
 
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
-import javax.ejb.TransactionAttribute;
-import javax.ejb.TransactionAttributeType;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.transaction.Transactional;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 /**
  * Created by dkazakov on 22.04.2014.
@@ -24,15 +21,29 @@ public class BookingService {
     @EJB
     private BookingDAO bookingDAO;
 
-    @PersistenceContext(unitName = Constants.PERSISTENCE_UNIT)
-    private EntityManager em;
+    @EJB
+    private InventoryDAO inventoryDAO;
 
-//    @TransactionAttribute(TransactionAttributeType.SUPPORTS)
-    @Transactional
-    public void makeOrder(@NotNull ReservationEntity reservationEntity) {
-        em.persist(reservationEntity);
-//        bookingDAO.makeOrder(reservationEntity);
-        String str = new String("asd");
+    public boolean makeOrder(@NotNull ReservationEntity reservationEntity) {
+        boolean succeed = bookingDAO.makeOrder(reservationEntity);
+        if (!succeed) {
+            // try to find similar offer
+            final int id = reservationEntity.getIdInventory();
+            InventoriesEntity inventory = inventoryDAO.getInventoryById(id);
+            List<InventoriesEntity> inventories = inventoryDAO.getSimilarInventory(inventory);
+            if (inventories.size() == 0) {
+                succeed = false;
+            } else {
+                // Is it thread-safe?
+                reservationEntity.setIdInventory(
+                        inventories.get(0).getIdInventory()
+                );
+                succeed = bookingDAO.makeOrder(reservationEntity);
+            }
+        }
+
+        return succeed;
+
     }
 
 

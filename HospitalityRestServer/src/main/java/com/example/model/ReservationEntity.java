@@ -11,7 +11,7 @@ import javax.persistence.*;
 @Table(name = "reservation", schema = "", catalog = "mydb",
         uniqueConstraints = { @UniqueConstraint(columnNames = "id_inventory") })
 public class ReservationEntity implements HospitalityEntity {
-    private NullableWrapper<Integer> idInventory;
+    private int idInventory;
     private NullableWrapper<Long> checkIn;
     private NullableWrapper<Long> checkOut;
     private NullableWrapper<String> guestName;
@@ -20,7 +20,7 @@ public class ReservationEntity implements HospitalityEntity {
     private InventoriesEntity inventory;
 
     @JsonBackReference
-    @OneToOne(mappedBy = "reservation")
+    @OneToOne(mappedBy = "reservation", cascade = CascadeType.PERSIST)
     public InventoriesEntity getInventory() {
         return inventory;
     }
@@ -30,13 +30,14 @@ public class ReservationEntity implements HospitalityEntity {
     }
 
     @Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
     @Column(name = "id_inventory")
     public int getIdInventory() {
-        return idInventory.getValue();
+        return idInventory;
     }
 
     public void setIdInventory(int idInventory) {
-        this.idInventory = new NullableWrapper<Integer>(idInventory);
+        this.idInventory = idInventory;
     }
 
     @Basic
@@ -97,7 +98,7 @@ public class ReservationEntity implements HospitalityEntity {
 
     @Override
     public int hashCode() {
-        int result = idInventory.getValue();
+        int result = idInventory;
 //        result = 31 * result + (checkIn != null ? checkIn.hashCode() : 0);
         result = 31 * result + (checkOut != null ? checkOut.hashCode() : 0);
         result = 31 * result + (guestName != null ? guestName.hashCode() : 0);

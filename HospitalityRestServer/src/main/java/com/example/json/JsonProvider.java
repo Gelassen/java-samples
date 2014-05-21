@@ -25,8 +25,8 @@ public abstract class JsonProvider<T> implements MessageBodyReader<T>, MessageBo
 
     @Override
     public boolean isReadable(Class<?> type, Type genericType, Annotation[] annotations, MediaType mediaType) {
-        return MediaType.APPLICATION_JSON_TYPE.equals(mediaType.getType()) &&
-                MediaType.APPLICATION_JSON_TYPE.equals(mediaType.getSubtype());
+        return MediaType.APPLICATION_JSON_TYPE.getType().equals(mediaType.getType()) &&
+                MediaType.APPLICATION_JSON_TYPE.getSubtype().equals(mediaType.getSubtype());
     }
 
     @Override
@@ -43,14 +43,14 @@ public abstract class JsonProvider<T> implements MessageBodyReader<T>, MessageBo
     }
 
     @Override
-    public long getSize(T t, Class<?> type, Type genericType, Annotation[] annotations, MediaType mediaType) {
+    public long getSize(T entity, Class<?> type, Type genericType, Annotation[] annotations, MediaType mediaType) {
         return -1;
     }
 
     @Override
-    public void writeTo(T t, Class<?> type, Type genericType, Annotation[] annotations, MediaType mediaType, MultivaluedMap<String, Object> httpHeaders, OutputStream entityStream) throws IOException, WebApplicationException {
+    public void writeTo(T entity, Class<?> type, Type genericType, Annotation[] annotations, MediaType mediaType, MultivaluedMap<String, Object> httpHeaders, OutputStream entityStream) throws IOException, WebApplicationException {
         Gson gson = createGson();
-        JsonElement element = gson.toJsonTree(entityStream);
+        JsonElement element = gson.toJsonTree(entity);
         Writer writer = null;
         try {
             writer = new OutputStreamWriter(entityStream, Charset.forName(Constants.UTF_8));

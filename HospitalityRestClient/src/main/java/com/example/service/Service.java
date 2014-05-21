@@ -2,8 +2,6 @@ package com.example.service;
 
 import com.example.json.HospitalityEntityProvider;
 import com.example.json.JsonCollection;
-import com.example.json.JsonRawProvider;
-import com.example.model.HospitalityEntity;
 import com.example.utils.Constants;
 import org.apache.commons.codec.binary.Base64;
 
@@ -25,7 +23,7 @@ public abstract class Service {
     public Service() {
         client = ClientBuilder.newClient();
         client.register(JsonCollection.class);
-        client.register(JsonRawProvider.class);
+//        client.register(JsonRawProvider.class);
         client.register(HospitalityEntityProvider.class);
     }
 

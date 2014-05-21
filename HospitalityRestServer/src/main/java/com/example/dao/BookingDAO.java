@@ -24,13 +24,16 @@ public class BookingDAO {
     public boolean makeOrder(ReservationEntity reservationEntity) {
         boolean succeed = false;
         try {
-            //FIXME find a solution for issue with price - remove inventory!
+            // FIXME Should I add price for reservation table (for date range)?!
             // if not reserved try to make reservation
-            InventoriesEntity entity = em.find(InventoriesEntity.class, reservationEntity.getIdInventory());
-            succeed = entity == null ? true : false;
-            if (entity == null) {
+            ReservationEntity reservation = em.find(ReservationEntity.class, reservationEntity.getIdInventory());
+            succeed = reservation == null ? true : false;
+            if (reservation == null) {
                 em.persist(reservationEntity);
-                RoomEntity roomEntity = em.find(RoomEntity.class, entity.getIdRoom());
+                InventoriesEntity inventoriesEntity = em.find(
+                        InventoriesEntity.class, reservationEntity.getIdInventory()
+                );
+                RoomEntity roomEntity = em.find(RoomEntity.class, inventoriesEntity.getIdRoom());
                 roomEntity.setBooked(true);
                 em.persist(roomEntity);
             }
@@ -43,5 +46,7 @@ public class BookingDAO {
 
         return succeed;
     }
+
+
 
 }

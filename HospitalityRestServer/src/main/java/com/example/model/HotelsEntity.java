@@ -1,8 +1,6 @@
 package com.example.model;
 
 
-import org.codehaus.jackson.annotate.JsonManagedReference;
-
 import javax.persistence.*;
 import java.util.List;
 
@@ -27,20 +25,26 @@ import java.util.List;
                             "AND hProperty.hasTennisCourt = :tennis " +
                             "AND hProperty.hasWaterslides = :waterslides " +
                             "AND hRooms.peopleCapacity >= :capacity " +
-                            "AND hRooms.booked = false " +
+                            "AND hRooms.locked = false " +
                             "AND (" +
                                 "(reservation.checkIn <= :checkin AND reservation.checkOut >= :checkin) " +
                                 "OR " +
                                 "(reservation.checkIn >= :checkin AND reservation.checkOut <= :checkout) " +
                                 "OR " +
-                                "(reservation.checkIn >= :checkin AND reservation.checkOut >= :checkout) )")
+                                "(reservation.checkIn >= :checkin AND reservation.checkOut >= :checkout) )"),
+        @NamedQuery(name = "HotelsEntity.findHotelById",
+                query = "select h from HotelsEntity h " +
+                        "left join fetch h.property " +
+                        "left join fetch h.rooms " +
+                        "where h.idHotel = :idHotel"),
+        @NamedQuery(name = "HotelsEntity.deleteById", query = "delete from HotelsEntity h where h.id = :id")
 })
 public class HotelsEntity implements HospitalityEntity{
     private int idHotel;
     private String name;
     private String region;
     private String description;
-//    private byte[] photo;
+    private String photo;
 
     private HotelPropertyEntity property;
     private List<RoomEntity> rooms;
@@ -106,15 +110,15 @@ public class HotelsEntity implements HospitalityEntity{
         this.description = description;
     }
 
-//    @Basic
-//    @Column(name = "photo", columnDefinition="longblob")
-//    public byte[] getPhoto() {
-//        return photo;
-//    }
+    @Basic
+    @Column(name = "photo")
+    public String getPhoto() {
+        return photo;
+    }
 
-//    public void setPhoto(byte[] photo) {
-//        this.photo = photo;
-//    }
+    public void setPhoto(String photo) {
+        this.photo = photo;
+    }
 
 
     @Override

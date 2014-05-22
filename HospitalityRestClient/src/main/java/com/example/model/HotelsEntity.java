@@ -25,7 +25,7 @@ import java.util.List;
                             "AND hProperty.hasTennisCourt = :tennis " +
                             "AND hProperty.hasWaterslides = :waterslides " +
                             "AND hRooms.peopleCapacity >= :capacity " +
-                            "AND hRooms.booked = false " +
+                            "AND hRooms.locked = false " +
                             "AND (" +
                                 "(reservation.checkIn <= :checkin AND reservation.checkOut >= :checkin) " +
                                 "OR " +
@@ -38,7 +38,7 @@ public class HotelsEntity implements HospitalityEntity {
     private String name;
     private String region;
     private String description;
-//    private byte[] photo;
+    private String photo;
 
     private HotelPropertyEntity property;
     private List<RoomEntity> rooms;
@@ -104,15 +104,15 @@ public class HotelsEntity implements HospitalityEntity {
         this.description = description;
     }
 
-//    @Basic
-//    @Column(name = "photo", columnDefinition="longblob")
-//    public byte[] getPhoto() {
-//        return photo;
-//    }
+    @Basic
+    @Column(name = "photo")
+    public String getPhoto() {
+        return photo;
+    }
 
-//    public void setPhoto(byte[] photo) {
-//        this.photo = photo;
-//    }
+    public void setPhoto(String photo) {
+        this.photo = photo;
+    }
 
 
     @Override

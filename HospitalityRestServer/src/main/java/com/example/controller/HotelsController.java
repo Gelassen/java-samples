@@ -40,6 +40,25 @@ public class HotelsController {
         return ResponseFactory.response(Response.Status.OK, hotel);
     }
 
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response createHotel(HotelsEntity hotel) {
+        HotelsEntity result = hotelService.createHotel(hotel);
+        return ResponseFactory.response(Response.Status.CREATED, result);
+    }
 
+    @PUT
+    @Path("/{id}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response updateDeviceClass(@PathParam("id") String hotelId, HotelsEntity hotel) {
+        boolean updated = hotelService.update(hotelId, hotel);
+        return ResponseFactory.response(updated ? Response.Status.NO_CONTENT : Response.Status.NOT_FOUND);
+    }
 
+    @DELETE
+    @Path("/{id}")
+    public Response deleteDeviceClass(@PathParam("id") long id) {
+        hotelService.delete(id);
+        return ResponseFactory.response(Response.Status.NO_CONTENT);
+    }
 }

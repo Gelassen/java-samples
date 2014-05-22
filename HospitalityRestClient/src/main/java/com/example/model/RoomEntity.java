@@ -15,6 +15,7 @@ public class RoomEntity implements HospitalityEntity {
     private int peopleCapacity;
     private Boolean booked;
     private Boolean locked;
+    private String photo;
 
     private HotelsEntity hotel;
     private InventoriesEntity inventory;
@@ -101,6 +102,15 @@ public class RoomEntity implements HospitalityEntity {
         this.locked = locked;
     }
 
+    @Basic
+    @Column(name = "photo")
+    public String getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(String photo) {
+        this.photo = photo;
+    }
 
     @Override
     public boolean equals(Object o) {

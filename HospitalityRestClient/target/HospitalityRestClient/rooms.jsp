@@ -24,7 +24,7 @@
             <div>
                 <tr>
                     <td>
-                        <img  src="https://q.bstatic.com/images/hotel/square90/286/28647237.jpg" alt="Adagio Paris Tour Eiffel, Париж" height="128" width="128">
+                        <img  src="<c:out value = "${inventory.room.photo}"/>" height="128" width="128">
                     </td>
                     <td>
                         <div class="row">

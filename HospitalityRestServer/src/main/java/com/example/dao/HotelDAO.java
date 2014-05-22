@@ -8,6 +8,7 @@ import com.example.model.HotelsEntity;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import javax.validation.constraints.NotNull;
 import java.util.List;
@@ -40,8 +41,24 @@ public class HotelDAO {
     }
 
     public HotelsEntity getHotelById(@NotNull String hotelId) {
-        // TODO complete me
-        return null;
+        TypedQuery<HotelsEntity> resultQuery =  em.createNamedQuery("HotelsEntity.findHotelById", HotelsEntity.class);
+        resultQuery.setParameter("idHotel", hotelId);
+        List<HotelsEntity> list = resultQuery.getResultList();
+        return list.isEmpty() ? null : list.get(0);
     }
 
+    public HotelsEntity createHotel(HotelsEntity hotel) {
+        em.persist(hotel);
+        return hotel;
+    }
+
+    public void update(HotelsEntity hotel) {
+        em.merge(hotel);
+    }
+
+    public boolean delete(long id) {
+        Query query = em.createNamedQuery("HotelsEntity.deleteById");
+        query.setParameter("id", id);
+        return query.executeUpdate() != 0;
+    }
 }

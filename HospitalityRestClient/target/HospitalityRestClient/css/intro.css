@@ -1,17 +1,17 @@
 .formWrap {
-    width: 600px;
+    width: 800px;
     margin: 0 auto;
 }
 
 .standardForm .row label {
     display: inline-block;
-    width: 50px;
+    width: 150px;
     margin-right: 5px;
     font-weight: bold;
 }
 
 .standardForm .row .error {
-    padding-left: 57px;
+    padding-left: 157px;
     color: red;
 }
 

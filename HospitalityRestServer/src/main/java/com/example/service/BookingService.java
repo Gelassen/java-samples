@@ -2,6 +2,7 @@ package com.example.service;
 
 import com.example.dao.BookingDAO;
 import com.example.dao.InventoryDAO;
+import com.example.model.HospitalityEntity;
 import com.example.model.InventoriesEntity;
 import com.example.model.ReservationEntity;
 
@@ -24,7 +25,7 @@ public class BookingService {
     @EJB
     private InventoryDAO inventoryDAO;
 
-    public boolean makeOrder(@NotNull ReservationEntity reservationEntity) {
+    public HospitalityEntity makeOrder(@NotNull ReservationEntity reservationEntity) {
         boolean succeed = bookingDAO.makeOrder(reservationEntity);
         if (!succeed) {
             // try to find similar offer
@@ -34,7 +35,7 @@ public class BookingService {
             if (inventories.size() == 0) {
                 succeed = false;
             } else {
-                // Is it thread-safe?
+                // TODO Is it thread-safe?
                 reservationEntity.setIdInventory(
                         inventories.get(0).getIdInventory()
                 );
@@ -42,7 +43,7 @@ public class BookingService {
             }
         }
 
-        return succeed;
+        return succeed ? reservationEntity : null;
 
     }
 

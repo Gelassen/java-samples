@@ -35,8 +35,9 @@ public abstract class Service {
         try {
             switch (statusFamily) {
                 case SERVER_ERROR:
-                case CLIENT_ERROR:
                     throw new RuntimeException("Status: " + response.getStatus());
+                case CLIENT_ERROR:
+                    return processClientError(response);
                 case SUCCESSFUL:
 
                     return response.readEntity(new GenericType<R>(type));
@@ -47,6 +48,10 @@ public abstract class Service {
         } catch (ProcessingException e) {
             throw new RuntimeException("Unable to read response");
         }
+    }
+
+    protected <R> R processClientError(Response response) {
+        throw new RuntimeException("Status: " + response.getStatus());
     }
 
     private <S> Invocation buildInvocation(String method, Map<String, Object> params, S objectToSend) {

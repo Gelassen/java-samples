@@ -3,8 +3,7 @@ package com.example.actions;
 import com.example.model.ReservationEntity;
 import com.example.service.BookingService;
 import com.example.utils.Session;
-import com.example.utils.validator.BookingError;
-import com.example.utils.validator.Validator;
+import com.example.utils.validator.*;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -20,7 +19,7 @@ public class BookAction implements Action {
 
     @Override
     public void perform(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // TODO save choosed values, show page
+        // process request from inventory page
         final String idInventory = request.getParameter("id_inventory");
         if (idInventory != null ) {
             Session session = new Session(request);
@@ -29,6 +28,7 @@ public class BookAction implements Action {
             return;
         }
 
+        // process request from booking page
         final String name = (String) request.getParameter("customer_name");
         final String phone = (String) request.getParameter("customer_phone");
 
@@ -43,7 +43,6 @@ public class BookAction implements Action {
             return;
         }
 
-        // TODO if we have name and phone show confirm booking
         // send order to the server
         Session session = new Session(request);
         ReservationEntity reservation = new ReservationEntity();
@@ -51,8 +50,12 @@ public class BookAction implements Action {
         reservation.setCheckOut(session.getCheckout());
         reservation.setGuestName(name);
         reservation.setGuestPhone(phone);
-        bookingService.book(reservation);
 
+        final boolean created = bookingService.book(reservation);
+        OrderError orderError = new OrderError();
+        orderError.setNoSimilarRooms(!created);
+
+        request.setAttribute("error", orderError);
         request.getRequestDispatcher("index.jsp").forward(request, response);
     }
 }

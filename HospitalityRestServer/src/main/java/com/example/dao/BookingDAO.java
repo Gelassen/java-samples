@@ -11,6 +11,8 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.PersistenceException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Created by dkazakov on 15.05.2014.
@@ -33,15 +35,15 @@ public class BookingDAO {
                 InventoriesEntity inventoriesEntity = em.find(
                         InventoriesEntity.class, reservationEntity.getIdInventory()
                 );
+                // mark room as booked
                 RoomEntity roomEntity = em.find(RoomEntity.class, inventoriesEntity.getIdRoom());
                 roomEntity.setBooked(true);
                 em.persist(roomEntity);
             }
         } catch (ConstraintViolationException e) {
-            String as = new String("asd");
-        }
-        catch (PersistenceException e) {
-            String as = new String("asd");
+            Logger.getAnonymousLogger().log(Level.SEVERE, "Failed to insert", e);
+        } catch (PersistenceException e) {
+            Logger.getAnonymousLogger().log(Level.SEVERE, "Failed", e);
         }
 
         return succeed;

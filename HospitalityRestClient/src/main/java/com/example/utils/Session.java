@@ -23,16 +23,16 @@ public class Session {
         this.session = request.getSession(false);
     }
 
-    public void setCheckin(String checkin) {
-        session.setAttribute(CHECKIN, new DateUtils().dateToSeconds(checkin));
+    public void setCheckin(String checkin, boolean inFormat) {
+        session.setAttribute(CHECKIN, inFormat ? new DateUtils().dateToSeconds(checkin) : Long.valueOf(checkin));
     }
 
     public Long getCheckin() {
         return (Long) session.getAttribute(CHECKIN);
     }
 
-    public void setCheckout(String checkout) {
-        session.setAttribute(CHECKOUT, new DateUtils().dateToSeconds(checkout));
+    public void setCheckout(String checkout, boolean inFormat) {
+        session.setAttribute(CHECKOUT, inFormat ? new DateUtils().dateToSeconds(checkout) : Long.valueOf(checkout));
     }
 
     public Long getCheckout() {

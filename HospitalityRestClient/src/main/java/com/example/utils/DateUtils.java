@@ -9,6 +9,7 @@ import java.util.Calendar;
 public class DateUtils {
 
     private static final long DAY_IN_MILLIS = 24 * 60 * 60 * 1000;
+    private static final long DAY_IN_SECS = 24 * 60 * 60;
 
     private static final int DAY_IDX = 0;
     private static final int MONTH_IDX = 1;
@@ -34,8 +35,8 @@ public class DateUtils {
 
     public long daysAmount(long checkin, long checkout) {
         final long diff = checkout - checkin;
-        long days = diff / DAY_IN_MILLIS;
-        long hours = diff % DAY_IN_MILLIS;
+        long days = diff / DAY_IN_SECS;
+        long hours = diff % DAY_IN_SECS;
         return hours != 0 ? ++days : days;
     }
 

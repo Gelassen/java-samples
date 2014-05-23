@@ -2,7 +2,7 @@ package com.example.service;
 
 
 import com.example.model.HotelPropertyEntity;
-import com.example.model.HotelsEntity;
+import com.example.model.HotelsResponse;
 import com.example.model.ReservationDatesEntity;
 import com.example.utils.DateUtils;
 import com.google.common.reflect.TypeToken;
@@ -22,19 +22,19 @@ import java.util.Map;
 @EJB(beanInterface = HotelService.class, name = "HotelService")
 public class HotelService extends Service{
 
-    public List<HotelsEntity> getHotels(final String checkin, final String checkout,
+    public List<HotelsResponse> getHotels(final String checkin, final String checkout,
                                         final int capacity, final HotelPropertyEntity hotelProperty) {
         // TODO extend params
         DateUtils dateUtils = new DateUtils();
-        Map<String, Object> params = new HashMap<String, Object>(3);
+        Map<String, Object> params = new HashMap<String, Object>(6);
         params.put("checkIn", dateUtils.dateToSeconds(checkin));
         params.put("checkOut", dateUtils.dateToSeconds(checkout));
         params.put("capacity", capacity);
         params.put("hasPool", hotelProperty.getHasPool());
         params.put("hasTenisCourt", hotelProperty.getHasTennisCourt());
         params.put("hasWaterslides", hotelProperty.getHasWaterslides());
-        List<HotelsEntity> list = execute(HttpMethod.GET, params,
-                new TypeToken<List<HotelsEntity>>(){}.getType(), null);
+        List<HotelsResponse> list = execute(HttpMethod.GET, params,
+                new TypeToken<List<HotelsResponse>>(){}.getType(), null);
         postProcessData(list);
         return list;
     }
@@ -45,10 +45,8 @@ public class HotelService extends Service{
 
     }
 
-
-
-    private void postProcessData(List<HotelsEntity> list ) {
-        for (HotelsEntity hotel : list) {
+    private void postProcessData(List<HotelsResponse> list ) {
+        for (HotelsResponse hotel : list) {
             for (ReservationDatesEntity dates : hotel.getReservationDates()) {
                 dates.prepareToView();
             }

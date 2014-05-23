@@ -14,10 +14,16 @@ import java.util.Date;
         uniqueConstraints = {
                 @UniqueConstraint(columnNames = "id")
         })
+@NamedQueries({
+    @NamedQuery(name = "ReservationDates.findAllByHotel",
+        query = "select rd from ReservationDatesEntity rd " +
+                "where rd.hotelId = :id ")
+})
 public class ReservationDatesEntity implements HospitalityEntity {
     private int id;
     private long checkIn;
     private long checkOut;
+    private long amount;
     private int hotelId;
 
     private String checkInFormated;
@@ -25,8 +31,8 @@ public class ReservationDatesEntity implements HospitalityEntity {
 
     private HotelsEntity hotel;
 
-    @JsonBackReference
-    @ManyToOne
+    @JsonBackReference("hotel")
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_hotel", insertable = false, updatable = false )
     public HotelsEntity getHotel() {
         return hotel;
@@ -47,16 +53,6 @@ public class ReservationDatesEntity implements HospitalityEntity {
     }
 
     @Basic
-    @Column(name = "id_hotel", columnDefinition="bigint(20)")
-    public int getHotelId() {
-        return hotelId;
-    }
-
-    public void setHotelId(int hotelId) {
-        this.hotelId = hotelId;
-    }
-
-    @Basic
     @Column(name = "check_in", columnDefinition="bigint(20)")
     public Long getCheckIn() {
         return checkIn;
@@ -64,6 +60,9 @@ public class ReservationDatesEntity implements HospitalityEntity {
 
     public void setCheckIn(Long checkIn) {
         this.checkIn = checkIn;
+        if (checkOut != 0) {
+            amount = checkOut - checkIn;
+        }
     }
 
     @Basic
@@ -74,6 +73,19 @@ public class ReservationDatesEntity implements HospitalityEntity {
 
     public void setCheckOut(Long checkOut) {
         this.checkOut = checkOut;
+        if (checkIn != 0) {
+            amount = checkOut - checkIn;
+        }
+    }
+
+    @Basic
+    @Column(name = "id_hotel", columnDefinition="bigint(20)")
+    public int getHotelId() {
+        return hotelId;
+    }
+
+    public void setHotelId(int hotelId) {
+        this.hotelId = hotelId;
     }
 
     public String getCheckInFormated() {
@@ -84,10 +96,13 @@ public class ReservationDatesEntity implements HospitalityEntity {
         return checkOutFormated;
     }
 
-    public void prepareToView() {
-        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
-        checkInFormated = format.format(new Date(checkIn));
-        checkOutFormated = format.format(new Date(checkOut));
+    public long getAmount() {
+        return amount;
     }
 
+    public void prepareToView() {
+        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+        checkInFormated = format.format(new Date(checkIn * 1000));
+        checkOutFormated = format.format(new Date(checkOut * 1000));
+    }
 }

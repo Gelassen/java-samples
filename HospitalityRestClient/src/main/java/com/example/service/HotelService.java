@@ -3,6 +3,7 @@ package com.example.service;
 
 import com.example.model.HotelPropertyEntity;
 import com.example.model.HotelsEntity;
+import com.example.model.ReservationDatesEntity;
 import com.example.utils.DateUtils;
 import com.google.common.reflect.TypeToken;
 
@@ -34,6 +35,7 @@ public class HotelService extends Service{
         params.put("hasWaterslides", hotelProperty.getHasWaterslides());
         List<HotelsEntity> list = execute(HttpMethod.GET, params,
                 new TypeToken<List<HotelsEntity>>(){}.getType(), null);
+        postProcessData(list);
         return list;
     }
 
@@ -41,6 +43,16 @@ public class HotelService extends Service{
     protected UriBuilder preparePath() {
         return UriBuilder.fromUri(HOST).path("rest").path("hotels");
 
+    }
+
+
+
+    private void postProcessData(List<HotelsEntity> list ) {
+        for (HotelsEntity hotel : list) {
+            for (ReservationDatesEntity dates : hotel.getReservationDates()) {
+                dates.prepareToView();
+            }
+        }
     }
 
 }

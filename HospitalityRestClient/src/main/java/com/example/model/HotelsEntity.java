@@ -2,6 +2,7 @@ package com.example.model;
 
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -42,7 +43,34 @@ public class HotelsEntity implements HospitalityEntity {
 
     private HotelPropertyEntity property;
     private List<RoomEntity> rooms;
+    private List<ReservationDatesEntity> reservationDates;
 
+    public HotelsEntity() {
+        if (reservationDates == null)
+            reservationDates = new ArrayList<ReservationDatesEntity>();
+
+        ReservationDatesEntity first = new ReservationDatesEntity();
+        first.setId(0);
+        first.setCheckIn(123l);
+        first.setCheckOut(321l);
+
+        ReservationDatesEntity second = new ReservationDatesEntity();
+        second.setId(1);
+        second.setCheckIn(123123l);
+        second.setCheckOut(312321l);
+
+        reservationDates.add(first);
+        reservationDates.add(second);
+    }
+
+    @OneToMany(mappedBy = "hotel")
+    public List<ReservationDatesEntity> getReservationDates() {
+        return reservationDates;
+    }
+
+    public void setReservationDates(List<ReservationDatesEntity> reservationDates) {
+        this.reservationDates = reservationDates;
+    }
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_hotel_property")

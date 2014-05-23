@@ -26,6 +26,18 @@
                             <div class="row">
                                 <c:out value="${hotel.description}" />
                             </div>
+                            <div class="row">
+                                <c:if test="${not empty hotel.reservationDates}">
+                                    This hotel doesn't support booking by dates. You can book rooms only for a date range. Please choose one:
+                                    <div class="row">
+                                        <select name="trips" onchange="submit()">
+                                            <c:forEach items="${hotel.reservationDates}" var="trip">
+                                                <option value="${trip.id}">${trip.checkInFormated}-${trip.checkOutFormated}</option>
+                                            </c:forEach>
+                                        </select>
+                                    </div>
+                                </c:if>
+                            </div>
                         </td>
                     </tr>
                 </div>

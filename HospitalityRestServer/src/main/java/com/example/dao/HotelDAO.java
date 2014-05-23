@@ -31,12 +31,12 @@ public class HotelDAO {
     public List<HotelsEntity> getAll(@NotNull Long checkIn, @NotNull Long checkOut,
                                      @NotNull int capacity, HotelPropertyEntity property) {
         TypedQuery<HotelsEntity> resultQuery =  em.createNamedQuery("HotelsEntity.findAllWithFilter", HotelsEntity.class);
-       /* resultQuery.setParameter("checkin", checkIn);
+        resultQuery.setParameter("checkin", checkIn);
         resultQuery.setParameter("checkout", checkOut);
         resultQuery.setParameter("capacity", capacity);
         resultQuery.setParameter("pool", property == null ? false : property.getHasPool());
         resultQuery.setParameter("tennis", property == null ? false : property.getHasTennisCourt());
-        resultQuery.setParameter("waterslides", property == null ? false : property.getHasWaterslides());*/
+        resultQuery.setParameter("waterslides", property == null ? false : property.getHasWaterslides());
         return resultQuery.getResultList();
     }
 

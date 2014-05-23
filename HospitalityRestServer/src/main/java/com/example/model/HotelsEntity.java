@@ -21,8 +21,7 @@ import java.util.List;
                         "left outer join fetch h.rooms hRooms " +
                         "left outer join fetch hRooms.inventory inventory " +
                         "left outer join fetch inventory.reservation reservation " +
-                        "group by h.idHotel" ),
-                     /*   "where " +
+                        "where " +
                         "hProperty.hasPool = :pool " +
                             "AND hProperty.hasTennisCourt = :tennis " +
                             "AND hProperty.hasWaterslides = :waterslides " +
@@ -33,7 +32,8 @@ import java.util.List;
                                 "OR " +
                                 "(reservation.checkIn >= :checkin AND reservation.checkOut <= :checkout) " +
                                 "OR " +
-                                "(reservation.checkIn >= :checkin AND reservation.checkOut >= :checkout) )"),*/
+                                "(reservation.checkIn >= :checkin AND reservation.checkOut >= :checkout) )" +
+                        "group by h.idHotel " ),
         @NamedQuery(name = "HotelsEntity.findHotelById",
                 query = "select h from HotelsEntity h " +
                         "left join fetch h.property " +
@@ -50,9 +50,9 @@ public class HotelsEntity implements HospitalityEntity{
 
     private HotelPropertyEntity property;
     private List<RoomEntity> rooms;
-//    private List<ReservationDatesEntity> reservationDates;
+  /*  private List<ReservationDatesEntity> reservationDates;
 
-/*    @OneToMany(mappedBy = "hotel")
+    @OneToMany(mappedBy = "hotel")
     public List<ReservationDatesEntity> getReservationDates() {
         return reservationDates;
     }

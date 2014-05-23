@@ -11,9 +11,9 @@ import javax.persistence.*;
 @Table(name = "hotel_property", schema = "", catalog = "mydb")
 public class HotelPropertyEntity implements HospitalityEntity {
     private int idHotelProperty;
-    private Boolean hasPool;
-    private Boolean hasTennisCourt;
-    private Boolean hasWaterslides;
+    private boolean hasPool;
+    private boolean hasTennisCourt;
+    private boolean hasWaterslides;
 
     private HotelsEntity hotel;
 

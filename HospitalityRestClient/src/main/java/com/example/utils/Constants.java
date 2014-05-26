@@ -11,6 +11,6 @@ public class Constants {
 
     public static final String NAME = "client";
 
-    public static final String PASSWORD = "1111ZZ";//"MTExMVpa";
+    public static final String PASSWORD = "1111ZZ";
 
 }

@@ -4,6 +4,7 @@
 <html>
 <head>
     <%--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>--%>
+    <link type="text/css" rel="stylesheet" href="<c:url value="css/rooms.css" />" />
 </head>
 <body>
 
@@ -35,9 +36,12 @@
                                 <div class="row">
                                     <c:out value="${hotel.description}" />
                                 </div>
-                                <div class="row">
+                                <div >
                                     <c:if test="${not empty hotel.reservationDates}">
-                                        This hotel doesn't support booking by dates. You can book rooms only for a date range. Please choose one:
+                                        <h5>
+                                            <span>This hotel doesn't support booking by dates. You can book rooms only for a date range. Please choose one:</span>
+                                        </h5>
+
                                         <div class="row">
                                             <select name="days" onchange="submit()">
                                                 <c:forEach items="${hotel.reservationDates}" var="trip">

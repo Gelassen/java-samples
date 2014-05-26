@@ -36,7 +36,6 @@ public class InventoryAction implements Action {
         List<InventoriesEntity> inventories = inventoryService.getInventories(
                 String.valueOf(session.getCheckin()),
                 String.valueOf(session.getCheckout()),
-                session.getPeopleCapacity(),
                 request.getParameter("hotel_id"));
         request.setAttribute("days", session.getDays());
         request.setAttribute("inventories", inventories);

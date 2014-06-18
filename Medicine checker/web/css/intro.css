@@ -1,0 +1,25 @@
+.formWrap {
+    width: 800px;
+    margin: 0 auto;
+}
+
+.standardForm .row label {
+    display: inline-block;
+    width: 150px;
+    margin-right: 5px;
+    font-weight: bold;
+}
+
+.standardForm .error {
+    padding-left: 157px;
+    color: red;
+}
+
+.standardForm .success {
+    padding-left: 157px;
+    color: lawngreen;
+}
+
+.row .hide {
+    display: none;
+}

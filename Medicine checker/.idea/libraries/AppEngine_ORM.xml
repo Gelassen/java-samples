@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="AppEngine ORM">
+    <CLASSES>
+      <root url="file://C:/Program Files/appengine-java-sdk-1.9.6/lib/opt/user/datanucleus/v2" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <jarDirectory url="file://C:/Program Files/appengine-java-sdk-1.9.6/lib/opt/user/datanucleus/v2" recursive="false" />
+  </library>
+</component>

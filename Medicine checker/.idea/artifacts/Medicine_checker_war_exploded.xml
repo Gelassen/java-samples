@@ -1,0 +1,18 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="Medicine checker:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/Medicine_checker_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="Medicine checker/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="Medicine checker" />
+          <element id="jpa-descriptors" facet="Medicine checker/jpa/JPA" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="AppEngine API" />
+          <element id="library" level="project" name="AppEngine ORM" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

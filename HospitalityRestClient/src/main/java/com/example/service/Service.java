@@ -1,7 +1,7 @@
 package com.example.service;
 
+import com.example.json.HospitalityEntityProvider;
 import com.example.json.JsonCollection;
-import com.example.model.HospitalityEntity;
 import com.example.utils.Constants;
 import org.apache.commons.codec.binary.Base64;
 
@@ -23,7 +23,8 @@ public abstract class Service {
     public Service() {
         client = ClientBuilder.newClient();
         client.register(JsonCollection.class);
-        client.register(HospitalityEntity.class);
+//        client.register(JsonRawProvider.class);
+        client.register(HospitalityEntityProvider.class);
     }
 
     protected abstract UriBuilder preparePath();
@@ -34,8 +35,9 @@ public abstract class Service {
         try {
             switch (statusFamily) {
                 case SERVER_ERROR:
-                case CLIENT_ERROR:
                     throw new RuntimeException("Status: " + response.getStatus());
+                case CLIENT_ERROR:
+                    return processClientError(response);
                 case SUCCESSFUL:
 
                     return response.readEntity(new GenericType<R>(type));
@@ -46,6 +48,10 @@ public abstract class Service {
         } catch (ProcessingException e) {
             throw new RuntimeException("Unable to read response");
         }
+    }
+
+    protected <R> R processClientError(Response response) {
+        throw new RuntimeException("Status: " + response.getStatus());
     }
 
     private <S> Invocation buildInvocation(String method, Map<String, Object> params, S objectToSend) {

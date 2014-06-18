@@ -43,8 +43,6 @@
           <element id="library" level="project" name="Maven: org.glassfish:javax.transaction:3.1" />
           <element id="library" level="project" name="Maven: org.glassfish:javax.annotation:3.1" />
           <element id="library" level="project" name="Maven: commons-codec:commons-codec:1.8" />
-          <element id="library" level="project" name="com.google.code.gson:gson:2.2.4" />
-          <element id="library" level="project" name="commons-codec-1.8" />
         </element>
       </element>
     </root>

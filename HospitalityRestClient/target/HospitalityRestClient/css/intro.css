@@ -5,13 +5,13 @@
 
 .standardForm .row label {
     display: inline-block;
-    width: 200px;
+    width: 150px;
     margin-right: 5px;
     font-weight: bold;
 }
 
 .standardForm .row .error {
-    padding-left: 207px;
+    padding-left: 157px;
     color: red;
 }
 

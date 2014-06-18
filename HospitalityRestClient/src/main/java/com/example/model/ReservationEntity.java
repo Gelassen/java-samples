@@ -8,11 +8,14 @@ import javax.persistence.*;
  * Created by dkazakov on 25.04.2014.
  */
 @Entity
-@Table(name = "reservation", schema = "", catalog = "mydb", uniqueConstraints = { @UniqueConstraint(columnNames = "id_inventory") })
+@Table(name = "reservation", schema = "", catalog = "mydb",
+        uniqueConstraints = {
+                @UniqueConstraint(columnNames = "id_inventory")
+        })
 public class ReservationEntity implements HospitalityEntity {
     private int idInventory;
-    private Long checkIn;
-    private Long checkOut;
+    private long checkIn;
+    private long checkOut;
     private String guestName;
     private String guestPhone;
 
@@ -86,8 +89,8 @@ public class ReservationEntity implements HospitalityEntity {
         ReservationEntity that = (ReservationEntity) o;
 
         if (idInventory != that.idInventory) return false;
-        if (checkIn != null ? !checkIn.equals(that.checkIn) : that.checkIn != null) return false;
-        if (checkOut != null ? !checkOut.equals(that.checkOut) : that.checkOut != null) return false;
+//        if (checkIn != null ? !checkIn.equals(that.checkIn) : that.checkIn != null) return false;
+//        if (checkOut != null ? !checkOut.equals(that.checkOut) : that.checkOut != null) return false;
         if (guestName != null ? !guestName.equals(that.guestName) : that.guestName != null) return false;
         if (guestPhone != null ? !guestPhone.equals(that.guestPhone) : that.guestPhone != null) return false;
 
@@ -97,10 +100,22 @@ public class ReservationEntity implements HospitalityEntity {
     @Override
     public int hashCode() {
         int result = idInventory;
-        result = 31 * result + (checkIn != null ? checkIn.hashCode() : 0);
-        result = 31 * result + (checkOut != null ? checkOut.hashCode() : 0);
+//        result = 31 * result + (checkIn != null ? checkIn.hashCode() : 0);
+//        result = 31 * result + (checkOut != null ? checkOut.hashCode() : 0);
         result = 31 * result + (guestName != null ? guestName.hashCode() : 0);
         result = 31 * result + (guestPhone != null ? guestPhone.hashCode() : 0);
         return result;
+    }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("ReservationEntity{");
+        sb.append("idInventory=").append(idInventory);
+        sb.append(", checkIn=").append(checkIn);
+        sb.append(", checkOut=").append(checkOut);
+        sb.append(", guestName=").append(guestName);
+        sb.append(", guestPhone=").append(guestPhone);
+        sb.append('}');
+        return sb.toString();
     }
 }

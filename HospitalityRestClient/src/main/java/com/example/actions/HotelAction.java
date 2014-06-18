@@ -1,7 +1,7 @@
 package com.example.actions;
 
 import com.example.model.HotelPropertyEntity;
-import com.example.model.HotelsEntity;
+import com.example.model.HotelsResponse;
 import com.example.service.HotelService;
 import com.example.utils.Session;
 import com.example.utils.validator.OrderError;
@@ -30,7 +30,6 @@ public class HotelAction implements Action {
         final String checkin = request.getParameter("checkin");
         final String checkout = request.getParameter("checkout");
         final String capacity = request.getParameter("capacity");
-//        final String region = request.getParameter("region");
 
         HotelPropertyEntity hotelProperty = new HotelPropertyEntity();
         hotelProperty.setHasPool(CHECKBOX_TRUE.equals(request.getParameter("hasPool")));
@@ -55,12 +54,12 @@ public class HotelAction implements Action {
 
 
         Session session = new Session(request);
-        session.setCheckin(checkin);
-        session.setCheckout(checkout);
+        session.setCheckin(checkin, true);
+        session.setCheckout(checkout, true);
         session.setPeopleCapacity(capacity);
         session.setDays();
 
-        List<HotelsEntity> hotels = hotelService.getHotels(checkin, checkout, Integer.valueOf(capacity), hotelProperty);
+        List<HotelsResponse> hotels = hotelService.getHotels(checkin, checkout, Integer.valueOf(capacity), hotelProperty);
         request.setAttribute("hotels", hotels);
         request.getRequestDispatcher("hotels.jsp").forward(request, response);
     }

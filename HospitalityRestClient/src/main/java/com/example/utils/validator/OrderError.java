@@ -8,6 +8,7 @@ public class OrderError implements Error {
     private boolean checkinError;
     private boolean checkoutError;
     private boolean peopleError;
+    private boolean noSimilarRooms;
 
     public boolean isCheckinError() {
         return checkinError;
@@ -31,5 +32,13 @@ public class OrderError implements Error {
 
     public void setPeopleError(boolean peopleError) {
         this.peopleError = peopleError;
+    }
+
+    public boolean isNoSimilarRooms() {
+        return noSimilarRooms;
+    }
+
+    public void setNoSimilarRooms(boolean noSimilarRooms) {
+        this.noSimilarRooms = noSimilarRooms;
     }
 }

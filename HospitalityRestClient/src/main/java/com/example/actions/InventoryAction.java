@@ -20,15 +20,24 @@ public class InventoryAction implements Action {
 
     @Override
     public void perform(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // TODO handle params and perform query
-        final String hotelId = request.getParameter("hotel_id");
-
         Session session = new Session(request);
         session.setHotel(request.getParameter("hotel"));
         session.setRegion(request.getParameter("region"));
         session.setDescription(request.getParameter("description"));
 
-        List<InventoriesEntity> inventories = inventoryService.getInventories(null, null, -1, hotelId);
+        String days = request.getParameter("days");
+        if (days != null) {
+            String[] pair = days.split("-");
+            session.setCheckin(pair[0], false);
+            session.setCheckout(pair[1], false);
+            session.setDays();
+        }
+
+        List<InventoriesEntity> inventories = inventoryService.getInventories(
+                String.valueOf(session.getCheckin()),
+                String.valueOf(session.getCheckout()),
+                request.getParameter("hotel_id"));
+        request.setAttribute("days", session.getDays());
         request.setAttribute("inventories", inventories);
         request.getRequestDispatcher("rooms.jsp").forward(request, response);
     }

@@ -39,7 +39,7 @@ public class InventoriesEntity implements HospitalityEntity {
     }
 
     @JsonManagedReference
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "inventory")
+    @OneToOne(mappedBy = "inventory")
     public AmmenitiesEntity getAmmenities() {
         return ammenities;
     }

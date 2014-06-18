@@ -27,7 +27,9 @@ public abstract class JsonProvider<T> implements MessageBodyReader<T>, MessageBo
     }
 
     @Override
-    public T readFrom(Class<T> type, Type genericType, Annotation[] annotations, MediaType mediaType, MultivaluedMap<String, String> httpHeaders, InputStream entityStream) throws IOException, WebApplicationException {
+    public T readFrom(Class<T> type, Type genericType, Annotation[] annotations, MediaType mediaType,
+                      MultivaluedMap<String, String> httpHeaders, InputStream entityStream)
+            throws IOException, WebApplicationException {
         Gson gson = createGson();
         Reader reader = new InputStreamReader(entityStream, Charset.forName(Constants.UTF_8));
         return gson.fromJson(reader, genericType);
@@ -40,14 +42,16 @@ public abstract class JsonProvider<T> implements MessageBodyReader<T>, MessageBo
     }
 
     @Override
-    public long getSize(T t, Class<?> type, Type genericType, Annotation[] annotations, MediaType mediaType) {
+    public long getSize(T entity, Class<?> type, Type genericType, Annotation[] annotations, MediaType mediaType) {
         return -1;
     }
 
     @Override
-    public void writeTo(T t, Class<?> type, Type genericType, Annotation[] annotations, MediaType mediaType, MultivaluedMap<String, Object> httpHeaders, OutputStream entityStream) throws IOException, WebApplicationException {
+    public void writeTo(T entity, Class<?> type, Type genericType, Annotation[] annotations, MediaType mediaType,
+                        MultivaluedMap<String, Object> httpHeaders, OutputStream entityStream)
+            throws IOException, WebApplicationException {
         Gson gson = createGson();
-        JsonElement element = gson.toJsonTree(entityStream);
+        JsonElement element = gson.toJsonTree(entity);
         Writer writer = null;
         try {
             writer = new OutputStreamWriter(entityStream, Charset.forName(Constants.UTF_8));
@@ -60,6 +64,9 @@ public abstract class JsonProvider<T> implements MessageBodyReader<T>, MessageBo
     }
 
     private Gson createGson() {
-        return new GsonBuilder().setPrettyPrinting().create();
+        return new GsonBuilder()
+                .setPrettyPrinting()
+                .registerTypeAdapterFactory(new NullableWrapperAdapterFactory())
+                .create();
     }
 }

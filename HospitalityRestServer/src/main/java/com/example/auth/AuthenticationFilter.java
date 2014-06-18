@@ -1,13 +1,16 @@
 package com.example.auth;
 
 import com.example.service.UserService;
+import org.apache.commons.codec.binary.Base64;
 
 import javax.annotation.Priority;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.ws.rs.Priorities;
+import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.container.ContainerRequestContext;
 import javax.ws.rs.container.ContainerRequestFilter;
+import javax.ws.rs.core.Response;
 import javax.ws.rs.ext.Provider;
 import java.io.IOException;
 
@@ -27,7 +30,7 @@ public class AuthenticationFilter implements ContainerRequestFilter {
 
     @Override
     public void filter(ContainerRequestContext containerRequestContext) throws IOException {
-/*        String auth = containerRequestContext.getHeaders().getFirst("authorization");
+        String auth = containerRequestContext.getHeaders().getFirst("authorization");
         if (auth == null) {
             throw new WebApplicationException(Response.Status.UNAUTHORIZED);
         }
@@ -42,7 +45,7 @@ public class AuthenticationFilter implements ContainerRequestFilter {
                     Response.status(Response.Status.UNAUTHORIZED)
                             .build()
             );
-        }*/
+        }
 
     }
 

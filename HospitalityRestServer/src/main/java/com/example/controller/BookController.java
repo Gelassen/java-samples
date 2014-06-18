@@ -22,13 +22,9 @@ public class BookController {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     public Response bookRoom(ReservationEntity reservationEntity) {
-        boolean notCreated = true;
-        bookingService.makeOrder(reservationEntity);
-/*        if (notCreated) {
-            return ResponseFactory.response(Response.Status.CONFLICT);
-        }*/
-
-        return ResponseFactory.response(Response.Status.NO_CONTENT);
+        ReservationEntity created = (ReservationEntity) bookingService.makeOrder(reservationEntity);
+        return ResponseFactory.response(
+                created != null ? Response.Status.CREATED : Response.Status.CONFLICT);
     }
 
 }

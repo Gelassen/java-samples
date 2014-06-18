@@ -2,9 +2,7 @@ package com.example.dao;
 
 import com.example.Constants;
 import com.example.model.InventoriesEntity;
-import com.example.model.inventory.Inventory;
 
-import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -30,9 +28,14 @@ public class InventoryDAO {
         return list;
     }
 
-    public List<Inventory> getInventoryById(String inventory) {
+    public InventoriesEntity getInventoryById(int inventoryId) {
         // TODO complete me
-        return new ArrayList<Inventory>();
+        return new InventoriesEntity();
+    }
+
+    public List<InventoriesEntity> getSimilarInventory(InventoriesEntity inventory) {
+        // TODO complete me
+        return new ArrayList<InventoriesEntity>();
     }
 
 }

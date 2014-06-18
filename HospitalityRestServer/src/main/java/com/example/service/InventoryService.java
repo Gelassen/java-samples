@@ -2,7 +2,6 @@ package com.example.service;
 
 import com.example.dao.InventoryDAO;
 import com.example.model.InventoriesEntity;
-import com.example.model.inventory.Inventory;
 
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
@@ -22,7 +21,7 @@ public class InventoryService {
         return inventoryDAO.getInventoriesByHotel(hotel);
     }
 
-    public List<Inventory> getInventoryById(String inventory) {
+    public InventoriesEntity getInventoryById(int inventory) {
         return inventoryDAO.getInventoryById(inventory);
     }
 

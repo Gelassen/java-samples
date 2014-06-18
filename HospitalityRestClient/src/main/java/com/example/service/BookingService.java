@@ -6,6 +6,7 @@ import com.example.model.ReservationEntity;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.ws.rs.HttpMethod;
+import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriBuilder;
 
 /**
@@ -15,20 +16,12 @@ import javax.ws.rs.core.UriBuilder;
 @EJB(beanInterface = BookingService.class, name = "BookingService")
 public class BookingService extends Service{
 
-    public boolean book(ReservationEntity reservation /*final String name, final String phone, final String inventoryId*/) {
-/*        Type type = new TypeToken<List<InventoriesEntity>>(){}.getType();
-        Map<String, Object> params = new HashMap<String, Object>(3);
-        params.put("id_inventory", inventoryId);
-        params.put("name", name);
-        params.put("phone", phone);
+    private boolean created;
 
-        ReservationEntity reservation = new ReservationEntity();
-        reservation.setCheckIn(checkIn);
-        reservation.setCheckOut(checkOut);
-        reservation.setGuestName(name);
-        reservation.setGuestPhone(phone);*/
+    public boolean book(ReservationEntity reservation) {
+        created = true;
         execute(HttpMethod.POST, null, ReservationEntity.class, reservation);
-        return true;
+        return created;
     }
 
     @Override
@@ -38,4 +31,9 @@ public class BookingService extends Service{
                 .path("book");
     }
 
+    @Override
+    protected <R> R processClientError(Response response) {
+        created = false;
+        return null;
+    }
 }

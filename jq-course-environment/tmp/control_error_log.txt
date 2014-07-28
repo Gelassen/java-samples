@@ -1,0 +1,3 @@
+Use of uninitialized value in -d at mysql.pl line 29, <F> line 1.
+Use of uninitialized value in concatenation (.) or string at mysql.pl line 29, <F> line 1.
+  Could not find 

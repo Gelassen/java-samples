@@ -10,6 +10,8 @@
 	<link href="js/css_jqueryui/ui-lightness/jquery-ui-1.10.4.custom.css" rel="stylesheet">
 	<script src="js/jquery-1.10.2.js"></script>
 	<script src="js/jquery-ui-1.10.4.custom.js"></script>
+	<script src="js/jquery.tmpl.js" type="text/javascript"></script>
+	<script src="js/post-loader.js"></script>
 	<script src="js/jscourse.js"></script>
 	
 	<title>Internet News</title>
@@ -41,43 +43,22 @@
 		<div id="left">
 
 		    <div id="newsbox">
-			<h1>New posts</h1>
-			<div id="newsitem">
-			    <h2><a href="#">Lorem Ipsum</a></h2>
-			    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent lupt...</p>
-			    <p class="date">
-				<span id="author">Posted by: <i>John Doe</i></span>
-				<span>
-				    <img src="images/more.gif" alt="" /> <a href="#">Read more</a> 
-				</span>
-				<span>
-				    <img src="images/comment.gif" alt="" /> <a href="#">Comments(7)</a> 
-				</span>
-				<span>
-				    <img src="images/timeicon.gif" alt="" /> 10th Jan, 2006
-				</span>
+				<h1>New posts</h1>
+				<div id="newsposts">
 
-			    </p>
-			</div>
+	
 
-
-			<h2><a href="#">Lorem Ipsum</a></h2>
-			<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent lupt...</p>
-			<p class="date"><img src="images/more.gif" alt="" /> <a href="#">Read more</a> <img src="images/comment.gif" alt="" /> <a href="#">Comments(12)</a> <img src="images/timeicon.gif" alt="" /> 29th Dec, 2005</p>
-
-			<h2><a href="#">Lorem Ipsum</a></h2>
-			<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent lupt...</p>
-			<p class="date"><img src="images/more.gif" alt="" /> <a href="#">Read more</a> <img src="images/comment.gif" alt="" /> <a href="#">Comments(34)</a> <img src="images/timeicon.gif" alt="" /> 24th Dec, 2005</p>
-
+				</div>
+			
 			<div id="pagination">
 			    <div id="prev">
-				<button>Prev</button>
+				<button id="prevbtn">Prev</button>
 			    </div>
 			    <div id="pagenum">
-				<span>Page 1</span>
+				<span id="pagenumspan">Page 1</span>
 			    </div>
 			    <div id="next">
-				<button>Next</button>
+				<button id="nextbtn">Next</button>
 			    </div>
 			</div>
 
@@ -88,8 +69,8 @@
 
 		<div id="right">
 
-		    <div id="searchform">
-			<form method="post" class="search" action="/post-form.php">
+		    <div id="searchformcontainer">
+			<form method="post" class="search" id="searchform" action="/post-form.php">
 			    <p>
 				<input name="pojam" class="text" id="pojam" type="text" />
 				<input name="search" class="button" value="Search" type="submit" />

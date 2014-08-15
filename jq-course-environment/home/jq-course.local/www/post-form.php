@@ -1,3 +1,7 @@
+<?php
+phpinfo();
+die();
+?>
 <h1>Form posted</h1>
 <pre>
 <?php

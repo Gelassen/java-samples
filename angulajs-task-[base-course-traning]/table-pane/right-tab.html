@@ -1,0 +1,25 @@
+<div id="content_people" ng-show="active=='people'" >
+    <table ng-table="tableParams" class="table">
+        <tbody ng-repeat="d in $data" >
+        <tr ng-click="onItemClick(d.name, $event)">
+            <td ng-click="addNewTeamMember(d, $event)" data-title='name'>{{d.name}}</td>
+            <td data-title='age'>{{d.age}}</td>
+            <td data-title='grade'>{{d.grade}}</td>
+            <td data-title='job'>{{d.job}}</td>
+        </tr>
+        <tr ng-show="isOpen(d.name)" ng-repeat = "f in getFeedback(d.name)" >
+            <td colspan="4" width="100%">
+                {{f}}
+            </td>
+        </tr>
+        <tr ng-show="isOpen(d.name)">
+            <td colspan="4" width="100%" ng-form="feedbackForm">
+                <input id="name" type="text" ng-model="comment" ng-minlength="10" required>
+                <input ng-click="submitNewFeedback(d.name, comment)" type="submit" value="Add new feedback" ng-disabled="feedbackForm.$invalid" >
+            <td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+

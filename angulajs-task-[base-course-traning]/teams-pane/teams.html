@@ -1,0 +1,17 @@
+<div id="teams" >
+
+    <div id="teamBlock" ng-form="myForm">
+        <input id="name" type="text" ng-model="teamName" ng-minlength="1" ng-pattern="/^[A-Za-z0-9]+$/" required >
+        <input add-new-team type="submit" value="Add new team" ng-disabled="myForm.$invalid" >
+    </div>
+
+    <div>
+        <accordion close-others="oneAtATime">
+            <accordion-group heading="{{teamHeading}}" ng-repeat="teamHeading in items" ng-click="selectTeam(teamHeading)">
+                <div ng-repeat="dev in devs[teamHeading]" ng-click="kickedOff(teamHeading, dev)"
+                     popover="{{dev.grade}} {{dev.job}} "
+                     popover-trigger="mouseenter">{{dev.name}}</div>
+            </accordion-group>
+        </accordion>
+    </div>
+</div>

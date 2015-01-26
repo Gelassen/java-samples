@@ -1,0 +1,28 @@
+<div id="content_search" ng-hide="active!='search'">
+    <div class='container-fluid' >
+
+        <!--contenteditable="true"-->
+        <div id="tagsContainer" class="tags" >
+            <div ng-repeat="tag in tags" ng-click="deleteTag(tag)" id="tag.name" class="btn btn-default">{{tag.name}}</div>
+
+            <!--class="input ng-pristine ng-valid invalid-tag"-->
+            <input class="form-control"
+                   type="text"
+                   ng-model="asyncSelected"
+                   placeholder="Locations loaded via $http"
+                   typeahead="name as (item.name + ' ' + item.grade + ' ' + item.job) for item in getLocation($viewValue)"
+                   typeahead-loading="loadingLocations"
+                   typeahead-min-length="3"
+                   typeahead-editable="false" typeahead-on-select='onSelect($item, $model, $label)'>
+        </div>
+
+
+        <i ng-show="loadingLocations" class="glyphicon glyphicon-refresh"></i>
+
+        <p>
+            <input type="submit" value="Refresh" ng-click="refresh()" ng-disabled="tags.length == 0">
+        </p>
+
+    </div>
+
+</div>

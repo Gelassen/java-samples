@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html ng-app="myapp">
+
+<head>
+    <title>AngularJS: UI-Router Abstract State Example</title>
+    <!-- Bootstrap CSS -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="container">
+
+
+    <!--<div class="row">-->
+        <!--<ul class="nav nav-pills">-->
+            <!--<li><a href="#/home">home</a></li>-->
+            <!--<li><a href="#/list">list</a></li>-->
+        <!--</ul>-->
+    <!--</div>-->
+
+    <div ui-view></div>
+
+<!-- Angular -->
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+<!-- Bootstrap -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
+<!-- UI-Router -->
+<script src="//angular-ui.github.io/ui-router/release/angular-ui-router.js"></script>
+
+<!-- App Script -->
+<script>
+    var myapp = angular.module('myapp', ["ui.router"])
+    myapp.config(function($stateProvider, $urlRouterProvider){
+
+//        $urlRouterProvider.when("", "/contacts/list");
+//        $urlRouterProvider.when("/", "/contacts/list");
+//
+//        // For any unmatched url, send to /route1
+//        $urlRouterProvider.otherwise("/contacts/list");
+
+        $stateProvider
+                .state('index', {
+//                    abstract: true,
+                    url: '',
+                    templateUrl: 'main.html'
+//                    controller: function($scope){
+//                        $scope.contacts = [{ id:0, name: "Alice" }, { id:1, name: "Bob" }];
+//                    },
+//                    onEnter: function(){
+//                        console.log("enter contacts");
+//                    }
+
+                })
+                .state('home', {
+//                    abstract: true,
+                    url: '/home',
+                    templateUrl: 'test1.html'
+//                    controller: function($scope){
+//                        $scope.contacts = [{ id:0, name: "Alice" }, { id:1, name: "Bob" }];
+//                    },
+//                    onEnter: function(){
+//                        console.log("enter contacts");
+//                    }
+
+                })
+                .state('list', {
+                    url: '/list',
+                    // loaded into ui-view of parent's template
+                    templateUrl: 'test2.html'
+//                    onEnter: function(){
+//                        console.log("enter contacts.list");
+//                    }
+                })
+//                .state('contacts.detail', {
+//                    url: '/:id',
+//                    // loaded into ui-view of parent's template
+//                    templateUrl: 'contacts.detail.html',
+//                    controller: function($scope, $stateParams){
+//                        $scope.person = $scope.contacts[$stateParams.id];
+//                    },
+//                    onEnter: function(){
+//                        console.log("enter contacts.detail");
+//                    }
+//                })
+    })
+</script>
+
+</body>
+
+</html>

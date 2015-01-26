@@ -1,0 +1,15 @@
+<div id="content">
+    <!--class="btn btn-default"-->
+    <div id="tabsTitle">
+        <nav>
+            <a href="#/search" ng-click="active='search'"> Search </a>
+            <a href="#/people" ng-click="active='people'"> People </a>
+            <!--<a ui-sref='home.people({pageNumber: 3})'> People with a specific page</a>-->
+
+        </nav>
+    </div>
+
+    <div id="tabs" ui-view></div>
+</div>
+
+<div teamspane></div>

@@ -1,0 +1,19 @@
+[0m[[0minfo[0m] [0m[32mHuffmanSuite:[0m[0m
+[0m[[0minfo[0m] [0m[32m- weight of a larger tree[0m[0m
+[0m[[0minfo[0m] [0m[32m- chars of a larger tree[0m[0m
+[0m[[0minfo[0m] [0m[32m- string2chars("hello, world")[0m[0m
+[0m[[0minfo[0m] [0m[32m- makeOrderedLeafList for some frequency table[0m[0m
+[0m[[0minfo[0m] [0m[32m- combine of some leaf list[0m[0m
+[0m[[0minfo[0m] [0m[31m- decode and encode a very short text should be identity *** FAILED ***[0m[0m
+[0m[[0minfo[0m] [0m[31m  java.util.NoSuchElementException: head of empty list[0m[0m
+[0m[[0minfo[0m] [0m[31m  at scala.collection.immutable.Nil$.head(List.scala:420)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at scala.collection.immutable.Nil$.head(List.scala:417)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at patmat.Huffman$.decompile$1(Huffman.scala:177)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at patmat.Huffman$.decode(Huffman.scala:192)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at patmat.HuffmanSuite$$anonfun$6$$anon$3.<init>(HuffmanSuite.scala:44)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at patmat.HuffmanSuite$$anonfun$6.apply$mcV$sp(HuffmanSuite.scala:43)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at patmat.HuffmanSuite$$anonfun$6.apply(HuffmanSuite.scala:43)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at patmat.HuffmanSuite$$anonfun$6.apply(HuffmanSuite.scala:43)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at org.scalatest.Transformer$$anonfun$apply$1.apply$mcV$sp(Transformer.scala:22)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at org.scalatest.OutcomeOf$class.outcomeOf(OutcomeOf.scala:85)[0m[0m
+[0m[[0minfo[0m] [0m[31m  ...[0m[0m

@@ -1,0 +1,19 @@
+[0m[[0minfo[0m] [0m[32mListsSuite:[0m[0m
+[0m[[0minfo[0m] [0m[32m- one plus one is two[0m[0m
+[0m[[0minfo[0m] [0m[32m- one plus one is three?[0m[0m
+[0m[[0minfo[0m] [0m[32m- details why one plus one is not three[0m[0m
+[0m[[0minfo[0m] [0m[32m- intNotZero throws an exception if its argument is 0[0m[0m
+[0m[[0minfo[0m] [0m[32m- length of the list[0m[0m
+[0m[[0minfo[0m] [0m[32m- length of the list. Negative[0m[0m
+[0m[[0minfo[0m] [0m[32m- length of the list. Zeros[0m[0m
+[0m[[0minfo[0m] [0m[32m- length of the list. Empty[0m[0m
+[0m[[0minfo[0m] [0m[32m- length of the list. Only one[0m[0m
+[0m[[0minfo[0m] [0m[32m- length of the list. Repeated[0m[0m
+[0m[[0minfo[0m] [0m[32m- length of the list. More than few[0m[0m
+[0m[[0minfo[0m] [0m[32m- min of a few numbers[0m[0m
+[0m[[0minfo[0m] [0m[32m- min of a few numbers. Negative[0m[0m
+[0m[[0minfo[0m] [0m[32m- min of a few numbers. Zeros[0m[0m
+[0m[[0minfo[0m] [0m[32m- min of a few numbers. Empty[0m[0m
+[0m[[0minfo[0m] [0m[32m- min of a few numbers. Only one[0m[0m
+[0m[[0minfo[0m] [0m[32m- min of a few numbers. Repeated[0m[0m
+[0m[[0minfo[0m] [0m[32m- min of a few numbers. More than few[0m[0m

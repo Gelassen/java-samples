@@ -1,0 +1,31 @@
+[0m[[0mdebug[0m] [0mRunning TaskDef(functions.CountChangeSuite, org.scalatest.tools.Framework$$anon$1@1bf8c5cf, false, [SuiteSelector])[0m
+[0m[[0mdebug[0m] [0mRunning TaskDef(classes.TweetSetSuite, org.scalatest.tools.Framework$$anon$1@1bf8c5cf, false, [SuiteSelector])[0m
+[0m[[0mdebug[0m] [0mRunning TaskDef(forcomp.AnagramsSuite, org.scalatest.tools.Framework$$anon$1@1bf8c5cf, false, [SuiteSelector])[0m
+[0m[[0mdebug[0m] [0mRunning TaskDef(functions.FunSetSuite, org.scalatest.tools.Framework$$anon$1@1bf8c5cf, false, [SuiteSelector])[0m
+[0m[[0mdebug[0m] [0mRunning TaskDef(example.ListsSuite, org.scalatest.tools.Framework$$anon$1@1bf8c5cf, false, [SuiteSelector])[0m
+[0m[[0mdebug[0m] [0mRunning TaskDef(functions.BalanceSuite, org.scalatest.tools.Framework$$anon$1@1bf8c5cf, false, [SuiteSelector])[0m
+[0m[[0mdebug[0m] [0mRunning TaskDef(functions.PascalSuite, org.scalatest.tools.Framework$$anon$1@1bf8c5cf, false, [SuiteSelector])[0m
+[0m[[0mdebug[0m] [0mRunning TaskDef(patmat.HuffmanSuite, org.scalatest.tools.Framework$$anon$1@1bf8c5cf, false, [SuiteSelector])[0m
+[0m[[0mdebug[0m] [0mRunning TaskDef(lists.MaximumPathSumSuite, org.scalatest.tools.Framework$$anon$1@1bf8c5cf, false, [SuiteSelector])[0m
+[0m[[0mdebug[0m] [0mRunning TaskDef(streams.BloxorzSuite, org.scalatest.tools.Framework$$anon$1@1bf8c5cf, false, [SuiteSelector])[0m
+[0m[[0mdebug[0m] [0mSummary for ScalaCheck not available.[0m
+[0m[[0minfo[0m] [0mScalaTest[0m
+[0m[[0minfo[0m] [0m[36mRun completed in 1 second, 247 milliseconds.[0m[0m
+[0m[[0minfo[0m] [0m[36mTotal number of tests run: 69[0m[0m
+[0m[[0minfo[0m] [0m[36mSuites: completed 10, aborted 0[0m[0m
+[0m[[0minfo[0m] [0m[36mTests: succeeded 68, failed 1, canceled 0, ignored 0, pending 0[0m[0m
+[0m[[0minfo[0m] [0m[31m*** 1 TEST FAILED ***[0m[0m
+[0m[[31merror[0m] [0mFailed: Total 69, Failed 1, Errors 0, Passed 68[0m
+[0m[[0mdebug[0m] [0mPassed tests:[0m
+[0m[[0mdebug[0m] [0m	functions.BalanceSuite[0m
+[0m[[0mdebug[0m] [0m	functions.PascalSuite[0m
+[0m[[0mdebug[0m] [0m	functions.CountChangeSuite[0m
+[0m[[0mdebug[0m] [0m	lists.MaximumPathSumSuite[0m
+[0m[[0mdebug[0m] [0m	classes.TweetSetSuite[0m
+[0m[[0mdebug[0m] [0m	functions.FunSetSuite[0m
+[0m[[0mdebug[0m] [0m	streams.BloxorzSuite[0m
+[0m[[0mdebug[0m] [0m	example.ListsSuite[0m
+[0m[[0mdebug[0m] [0m	forcomp.AnagramsSuite[0m
+[0m[[31merror[0m] [0mFailed tests:[0m
+[0m[[31merror[0m] [0m	patmat.HuffmanSuite[0m
+[0m[[31merror[0m] [0m(test:[31mtest[0m) sbt.TestsFailedException: Tests unsuccessful[0m
